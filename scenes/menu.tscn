@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://iil4sxgpau4p"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_smsvi"]
+[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_jldn6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smsvi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="SceneLabel" type="Label" parent="MarginContainer"]
+offset_left = 333.0
+offset_top = 100.0
+offset_right = 747.0
+offset_bottom = 308.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 150
+text = "Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+offset_left = 345.0
+offset_top = 1946.0
+offset_right = 734.0
+offset_bottom = 2240.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+offset_left = 89.0
+offset_right = 299.0
+offset_bottom = 145.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+offset_top = 149.0
+offset_right = 389.0
+offset_bottom = 294.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Options
+"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+visible = false
+offset_left = 140.0
+offset_top = 1070.0
+offset_right = 940.0
+offset_bottom = 1270.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_jldn6")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
