@@ -28,7 +28,9 @@ func die():
 		#get_node("GameAnimationPlayer").play("death")
 	
 func save(field,value):
-	pass
+	# Save score locally
+	var file = FileAccess.open("user://scores.pand", FileAccess.WRITE)
+	file.store_string(str(field) + ":" + str(value))
 	
 func pause():
 	get_tree().paused = true
