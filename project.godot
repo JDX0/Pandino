@@ -21,6 +21,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 TransitionScene="*res://scenes/transition.tscn"
+State="*res://scripts/state.gd"
 
 [display]
 

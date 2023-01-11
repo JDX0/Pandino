@@ -18,10 +18,5 @@ texture = ExtResource("2_xf4j6")
 shape = SubResource("CircleShape2D_2yi3v")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 10.0
+energy = 0.5
 texture = ExtResource("3_hnyio")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -250)
-current = true
-position_smoothing_enabled = true

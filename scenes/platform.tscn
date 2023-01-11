@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://df3rgt0ixfm44" path="res://assets/bat_n.png" id="2_i5fp7"]
 [ext_resource type="Texture2D" uid="uid://cyew5e6ulr3sh" path="res://assets/bat_s.png" id="3_lkgrj"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_tbdsp"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ko6eq"]
 diffuse_texture = ExtResource("1_53m0b")
 normal_texture = ExtResource("2_i5fp7")
 specular_texture = ExtResource("3_lkgrj")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trd8d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfqpo"]
 
 [node name="Platform" type="AnimatableBody2D"]
 script = ExtResource("1_428lk")
@@ -21,11 +21,11 @@ scale = Vector2(12.5, 3)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -23)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CanvasTexture_tbdsp")
+texture = SubResource("CanvasTexture_ko6eq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(12.5, 3)
-shape = SubResource("RectangleShape2D_trd8d")
+shape = SubResource("RectangleShape2D_mfqpo")
 one_way_collision = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

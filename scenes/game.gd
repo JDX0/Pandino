@@ -4,20 +4,31 @@ var score = 0
 var max_player_height = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	State.state = "playing"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
 	update_score()
 
 func update_score():
 	var player_height = get_node("World/Character").position.y
 	if player_height < max_player_height:
 		max_player_height = player_height
+	if player_height > max_player_height + 1000:
+		die()
 	score = round(-max_player_height/100)
 	get_node("CanvasLayer/MarginContainer/ScoreLabel").text = str(score)
+	
+func die():
+	if State.state != "dead":
+		State.state = "dead"
+		save("score",score)
+		TransitionScene.transition("res://scenes/death.tscn")
+		#get_node("GameAnimationPlayer").play("death")
+	
+func save(field,value):
+	pass
 	
 func pause():
 	get_tree().paused = true
