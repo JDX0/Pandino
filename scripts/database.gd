@@ -3,7 +3,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	select()
 	pass
 
 
@@ -14,6 +13,10 @@ func _process(delta):
 func select():
 	Supabase.database.connect("selected", self._on_selected)
 	var query = SupabaseQuery.new().from("scores").select()
+	Supabase.database.query(query)
+	
+func insert_score(value):
+	var query = SupabaseQuery.new().from("scores").insert([{"value":value}])
 	Supabase.database.query(query)
 
 func _on_selected(result : Array):
