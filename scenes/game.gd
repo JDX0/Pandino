@@ -24,6 +24,7 @@ func die():
 	if State.state != "dead":
 		State.state = "dead"
 		save("score",score)
+		Database.insert_score(score)
 		TransitionScene.transition("res://scenes/death.tscn")
 		#get_node("GameAnimationPlayer").play("death")
 	

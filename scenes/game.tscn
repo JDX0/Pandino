@@ -92,21 +92,30 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="SceneLabel" type="Label" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
+offset_left = 327.0
+offset_top = 100.0
+offset_right = 752.0
+offset_bottom = 308.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Game"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
+offset_left = 100.0
+offset_top = 2032.0
+offset_right = 499.0
+offset_bottom = 2240.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 150
 text = "Score"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
+offset_left = 682.0
+offset_top = 2095.0
+offset_right = 980.0
+offset_bottom = 2240.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
@@ -126,26 +135,34 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Pause"]
 custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
+offset_right = 1080.0
+offset_bottom = 300.0
 size_flags_vertical = 8
 color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause"]
-layout_mode = 2
+offset_right = 1080.0
+offset_bottom = 300.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Pause/MarginContainer2"]
-layout_mode = 2
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 101.0
+offset_bottom = 220.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 100
 text = "Score"
 clip_text = true
 
 [node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/MarginContainer2"]
-layout_mode = 2
+offset_left = 584.0
+offset_top = 77.0
+offset_right = 980.0
+offset_bottom = 222.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100

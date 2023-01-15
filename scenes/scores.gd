@@ -29,4 +29,4 @@ func add_to_list(row : Dictionary):
 	get_node("MarginContainer/ScoreList").add_item(str(datetime_string))
 
 func _on_back_button_pressed():
-	pass # Replace with function body.
+	TransitionScene.transition("res://scenes/menu.tscn")

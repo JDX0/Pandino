@@ -10,15 +10,34 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func select():
-	Supabase.database.connect("selected", self._on_selected)
+	Supabase.database.connect("selected", _on_selected)
 	var query = SupabaseQuery.new().from("scores").select()
 	Supabase.database.query(query)
+	
+func _on_selected(result : Array):
+	print(result)
+	
 	
 func insert_score(value):
 	var query = SupabaseQuery.new().from("scores").insert([{"value":value}])
 	Supabase.database.query(query)
+	
+	
+func sign_in(email,password):
+	Supabase.auth.connect("signed_in", _on_signed_in)
+	Supabase.auth.sign_in(email,password)
 
-func _on_selected(result : Array):
-	print(result)
+func _on_signed_in(user : SupabaseUser):
+	print("Successfully signed as ", user)
+
+
+func sign_up(email,password):
+	var auth_task: AuthTask = await Supabase.auth.sign_up(
+		email,
+		password
+	).completed
+	print(auth_task.user)
+
 
