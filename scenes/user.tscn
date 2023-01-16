@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_l6yum")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,25 +24,34 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="SceneLabel" type="Label" parent="MarginContainer"]
-layout_mode = 2
+offset_left = 246.0
+offset_top = 100.0
+offset_right = 834.0
+offset_bottom = 308.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Account"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+offset_left = 257.0
+offset_top = 1023.0
+offset_right = 823.0
+offset_bottom = 1317.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="EmailEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 566.0
+offset_bottom = 145.0
 theme_override_font_sizes/font_size = 100
 placeholder_text = "Email"
 virtual_keyboard_type = 5
 
 [node name="PasswordEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 149.0
+offset_right = 566.0
+offset_bottom = 294.0
 theme_override_font_sizes/font_size = 100
 placeholder_text = "Password"
 secret = true
@@ -51,19 +59,26 @@ expand_to_text_length = true
 virtual_keyboard_type = 6
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+offset_left = 354.0
+offset_top = 1946.0
+offset_right = 726.0
+offset_bottom = 2240.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
+offset_left = 36.0
+offset_right = 335.0
+offset_bottom = 145.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
 text = "Log In"
 
 [node name="SignUpButton" type="Button" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
+offset_top = 149.0
+offset_right = 372.0
+offset_bottom = 294.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
@@ -72,7 +87,10 @@ text = "Sign Up
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 visible = false
-layout_mode = 2
+offset_left = 140.0
+offset_top = 100.0
+offset_right = 940.0
+offset_bottom = 300.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("2_ppfii")
