@@ -117,7 +117,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Pandino"
-run/main_scene="res://scenes/menu.tscn"
+run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 boot_splash/image="res://assets/iedeix.png"
 boot_splash/fullsize=false

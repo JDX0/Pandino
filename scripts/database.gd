@@ -21,17 +21,17 @@ func _on_selected(result : Array):
 	
 	
 func insert_score(value):
-	var query = SupabaseQuery.new().from("scores").insert([{"value":value}])
+	var query = SupabaseQuery.new().from("scores").insert([{"value":value,"user_id":State.user.id}])
 	Supabase.database.query(query)
 	
 	
 func sign_in(email,password):
 	Supabase.auth.connect("signed_in", _on_signed_in)
 	Supabase.auth.sign_in(email,password)
-
+	
 func _on_signed_in(user : SupabaseUser):
-	print("Successfully signed as ", user)
-	print(Supabase.auth.__get_session_header())
+	State.user = user
+	print(State.user)
 	
 
 func sign_up(email,password):
@@ -39,7 +39,11 @@ func sign_up(email,password):
 		email,
 		password
 	).completed
-	print(auth_task.user)
-	print(Supabase.auth.user())
+	State.user = auth_task.user
+	print(State.user)
+	
+func insert_account_info(username,description):
+	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}])
+	Supabase.database.query(query)
 
 
