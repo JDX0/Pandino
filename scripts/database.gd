@@ -31,7 +31,8 @@ func sign_in(email,password):
 
 func _on_signed_in(user : SupabaseUser):
 	print("Successfully signed as ", user)
-
+	print(Supabase.auth.__get_session_header())
+	
 
 func sign_up(email,password):
 	var auth_task: AuthTask = await Supabase.auth.sign_up(
@@ -39,5 +40,6 @@ func sign_up(email,password):
 		password
 	).completed
 	print(auth_task.user)
+	print(Supabase.auth.user())
 
 

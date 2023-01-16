@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=3 format=3 uid="uid://t5butq2njbwl"]
 
-[ext_resource type="Script" path="res://scenes/start.gd" id="1_5euu0"]
-[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_jldn6"]
+[ext_resource type="Script" path="res://scenes/start.gd" id="1_txpj5"]
+[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_ljdno"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5euu0")
+script = ExtResource("1_txpj5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -34,4 +34,4 @@ text = "Start"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_jldn6")
+texture = ExtResource("2_ljdno")

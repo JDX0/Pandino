@@ -13,7 +13,8 @@ func _process(delta):
 
 func _on_login_button_pressed():
 	Database.sign_in(get_node("MarginContainer/VBoxContainer/EmailEdit").text,get_node("MarginContainer/VBoxContainer/PasswordEdit").text)
-
+	
 
 func _on_sign_up_button_pressed():
 	Database.sign_up(get_node("MarginContainer/VBoxContainer/EmailEdit").text,get_node("MarginContainer/VBoxContainer/PasswordEdit").text)
+	
