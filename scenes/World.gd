@@ -27,6 +27,8 @@ func generate():
 		gen_platform.set_position(Vector2(randx,height))
 		var gen_extension = extensions[0].instantiate()
 		gen_extension.set_position(gen_platform.get_child(0).position)
+		gen_extension.add_to_group("touch_interact")
+		gen_platform.add_to_group("touch_interact")
 		gen_platform.add_child(gen_extension)
 		add_child(gen_platform)
 		last_platform_height = height
