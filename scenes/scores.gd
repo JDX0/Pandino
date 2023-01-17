@@ -21,9 +21,9 @@ func _on_selected(result : Array):
 		add_to_list(row)
 	
 func add_to_list(row : Dictionary):
-	var created = Time.get_datetime_dict_from_datetime_string(row["created_at"], false)
+	var time_ago = (Time.get_unix_time_from_system()-Time.get_unix_time_from_datetime_string(row["created_at"]))/60
 	get_node("MarginContainer/VBox/ScoreList").add_item(str(row["value"]))
-	get_node("MarginContainer/VBox/ScoreList").add_item(str(created["minute"]))
+	get_node("MarginContainer/VBox/ScoreList").add_item(str(round(time_ago))+"m")
 	get_node("MarginContainer/VBox/ScoreList").add_item(str(row["profiles"]["username"]))
 
 func _on_back_button_pressed():

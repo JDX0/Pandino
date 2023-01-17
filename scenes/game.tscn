@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="2_kkpfb"]
-[ext_resource type="PackedScene" uid="uid://djpfogsam31e3" path="res://scenes/platform.tscn" id="3_dvasl"]
+[ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
 
 [sub_resource type="Animation" id="Animation_j4tba"]
@@ -67,10 +67,9 @@ script = ExtResource("1_jyict")
 script = ExtResource("2_kkpfb")
 
 [node name="Character" parent="World" instance=ExtResource("2_boxkp")]
+position = Vector2(4, -168)
 
-[node name="Platform" parent="World" instance=ExtResource("3_dvasl")]
-position = Vector2(0, 200)
-scale = Vector2(2, 2)
+[node name="Platform" parent="World" instance=ExtResource("4_2xq3v")]
 
 [node name="CharacterCamera" type="Camera2D" parent="World"]
 offset = Vector2(0, -250)
@@ -81,7 +80,6 @@ script = ExtResource("5_3da65")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -92,30 +90,21 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="SceneLabel" type="Label" parent="CanvasLayer/MarginContainer"]
-offset_left = 327.0
-offset_top = 100.0
-offset_right = 752.0
-offset_bottom = 308.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Game"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/MarginContainer"]
-offset_left = 100.0
-offset_top = 2032.0
-offset_right = 499.0
-offset_bottom = 2240.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 150
 text = "Score"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer/MarginContainer"]
-offset_left = 682.0
-offset_top = 2095.0
-offset_right = 980.0
-offset_bottom = 2240.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
@@ -135,34 +124,26 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Pause"]
 custom_minimum_size = Vector2(0, 300)
-offset_right = 1080.0
-offset_bottom = 300.0
+layout_mode = 2
 size_flags_vertical = 8
 color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause"]
-offset_right = 1080.0
-offset_bottom = 300.0
+layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Pause/MarginContainer2"]
-offset_left = 100.0
-offset_top = 80.0
-offset_right = 101.0
-offset_bottom = 220.0
+layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 100
 text = "Score"
 clip_text = true
 
 [node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/MarginContainer2"]
-offset_left = 584.0
-offset_top = 77.0
-offset_right = 980.0
-offset_bottom = 222.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
