@@ -12,7 +12,7 @@ func _process(delta):
 
 func get_online_scores():
 	Supabase.database.connect("selected", self._on_selected)
-	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,profiles(username)"]))
+	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,profiles(username)"])).order('value',1)
 	Supabase.database.query(query)
 
 func _on_selected(result : Array):
