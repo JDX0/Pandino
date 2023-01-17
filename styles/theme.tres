@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://df8f7hoga7trb"]
+
+[ext_resource type="StyleBox" uid="uid://mc7p2sc5xx64" path="res://styles/lineedit_focus.tres" id="1_31f8n"]
+[ext_resource type="FontFile" uid="uid://b2esxeslojyrn" path="res://assets/fonts/OTF/InriaSans-Regular.otf" id="1_bma4m"]
+[ext_resource type="StyleBox" uid="uid://dciq46bkk0h12" path="res://styles/user.tres" id="2_x61rl"]
+
+[sub_resource type="FontVariation" id="FontVariation_30lko"]
+base_font = ExtResource("1_bma4m")
+
+[resource]
+Control/fonts/font = SubResource("FontVariation_30lko")
+LineEdit/constants/caret_width = 0
+LineEdit/font_sizes/font_size = 100
+LineEdit/fonts/font = null
+LineEdit/styles/focus = ExtResource("1_31f8n")
+LineEdit/styles/normal = ExtResource("2_x61rl")
+LineEdit/styles/read_only = ExtResource("2_x61rl")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6ajj8prf7nlu"]
+[gd_scene load_steps=4 format=3 uid="uid://c6ajj8prf7nlu"]
 
 [ext_resource type="Script" path="res://scenes/scores.gd" id="1_o2ydq"]
+[ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="1_qi7w6"]
 [ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_ae20b"]
 
 [node name="Scores" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qi7w6")
 script = ExtResource("1_o2ydq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
