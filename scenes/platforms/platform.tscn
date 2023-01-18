@@ -1,16 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ewayixdstaj6"]
+[gd_scene load_steps=5 format=3 uid="uid://ewayixdstaj6"]
 
 [ext_resource type="Script" path="res://scenes/platforms/platform.gd" id="1_fds6i"]
-[ext_resource type="Texture2D" uid="uid://guyj18siaekc" path="res://assets/bat.png" id="2_6l7ob"]
-[ext_resource type="Texture2D" uid="uid://df3rgt0ixfm44" path="res://assets/bat_n.png" id="3_3cptj"]
-[ext_resource type="Texture2D" uid="uid://cyew5e6ulr3sh" path="res://assets/bat_s.png" id="4_feibi"]
+[ext_resource type="Texture2D" uid="uid://b86fqgbcolfwr" path="res://assets/world/platform.png" id="2_84tdo"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_hhxxi"]
-diffuse_texture = ExtResource("2_6l7ob")
-normal_texture = ExtResource("3_3cptj")
-specular_texture = ExtResource("4_feibi")
+[sub_resource type="CanvasTexture" id="CanvasTexture_c413e"]
+diffuse_texture = ExtResource("2_84tdo")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ping7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0ssl"]
 
 [node name="Platform" type="AnimatableBody2D"]
 script = ExtResource("1_fds6i")
@@ -23,13 +19,12 @@ scale = Vector2(12.5, 3)
 scale = Vector2(12.5, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -23)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("CanvasTexture_hhxxi")
+scale = Vector2(0.25, 0.25)
+texture = SubResource("CanvasTexture_c413e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(12.5, 3)
-shape = SubResource("RectangleShape2D_ping7")
+shape = SubResource("RectangleShape2D_i0ssl")
 one_way_collision = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

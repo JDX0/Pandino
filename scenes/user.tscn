@@ -57,6 +57,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
+[node name="TestingLoginButton" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Testing Log In"
+
 [node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -66,7 +73,7 @@ text = "Log In"
 
 [node name="SignUpButton" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
 text = "Sign Up
@@ -79,5 +86,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("2_ppfii")
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/TestingLoginButton" to="." method="_on_testing_login_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LoginButton" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/SignUpButton" to="." method="_on_sign_up_button_pressed"]
