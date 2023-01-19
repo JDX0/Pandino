@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy1mg3se348mt"]
+[gd_scene load_steps=4 format=3 uid="uid://cy1mg3se348mt"]
 
 [ext_resource type="Script" path="res://scenes/account_info.gd" id="1_2qi08"]
+[ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="1_w57w1"]
 [ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_e5bru"]
 
 [node name="AccountInfo" type="Control"]
@@ -10,10 +11,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_w57w1")
 script = ExtResource("1_2qi08")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -24,10 +26,7 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="SceneLabel" type="Label" parent="MarginContainer"]
-offset_left = 105.0
-offset_top = 100.0
-offset_right = 975.0
-offset_bottom = 516.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
@@ -35,39 +34,30 @@ text = "Account
 Information"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 352.0
-offset_top = 1091.0
-offset_right = 728.0
-offset_bottom = 1248.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="UsernameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
-offset_right = 376.0
-offset_bottom = 145.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 placeholder_text = "Username"
+expand_to_text_length = true
 virtual_keyboard_type = 5
 
 [node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
-offset_top = 149.0
-offset_right = 376.0
-offset_bottom = 157.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "eshge"
 placeholder_text = "Profile Description"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 394.0
-offset_top = 2095.0
-offset_right = 686.0
-offset_bottom = 2240.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="FinishButton" type="Button" parent="MarginContainer/VBoxContainer2"]
-offset_right = 292.0
-offset_bottom = 145.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
@@ -75,10 +65,7 @@ text = "Finish"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 visible = false
-offset_left = 140.0
-offset_top = 100.0
-offset_right = 940.0
-offset_bottom = 300.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("2_e5bru")

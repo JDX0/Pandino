@@ -42,6 +42,7 @@ size_flags_vertical = 4
 layout_mode = 2
 theme = ExtResource("2_re154")
 placeholder_text = "Email"
+expand_to_text_length = true
 virtual_keyboard_type = 5
 
 [node name="PasswordEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]

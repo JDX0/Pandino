@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=11 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="2_kkpfb"]
 [ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
+[ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="6_75mj2"]
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -84,6 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_75mj2")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
@@ -116,6 +118,7 @@ process_mode = 3
 offset_top = 2340.0
 offset_right = 1080.0
 offset_bottom = 2640.0
+theme = ExtResource("6_75mj2")
 
 [node name="PauseAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Pause"]
 libraries = {
