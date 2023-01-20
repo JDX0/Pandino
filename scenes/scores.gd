@@ -1,14 +1,10 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	get_online_scores()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
-
 
 func get_online_scores():
 	Supabase.database.connect("selected", self._on_selected)
@@ -46,18 +42,5 @@ func get_time_passed_from_datetime_string(datetime_string : String):
 	#	return str(floor(seconds_passed/2629757))+" month"
 	return str(floor(seconds_passed/31556952))+" y" # more than 1 year
 	
-# Stupid
-func get_short_relative_time_from_datetime_string(datetime_string : String):
-	var unix_created = Time.get_unix_time_from_datetime_string(datetime_string)
-	var time_delta = Time.get_unix_time_from_system()-unix_created
-	var time_passed_dict = Time.get_datetime_dict_from_unix_time(unix_created+60*Time.get_time_zone_from_system()["bias"])
-	var date = str(time_passed_dict["day"])+"."+str(time_passed_dict["month"])+"."
-	var time = str(time_passed_dict["hour"])+":"+str(time_passed_dict["minute"])
-	if time_delta < 86400: # one day
-		return time
-	if time_delta < 31536000: # one year
-		return date
-	return time_passed_dict["year"]
-
 func _on_back_button_pressed():
 	TransitionScene.transition("res://scenes/menu.tscn")

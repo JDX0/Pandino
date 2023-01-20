@@ -42,7 +42,3 @@ func _physics_process(delta):
 	else:
 		previous_collider = null
 
-func _on_interact_detection_area_body_entered(body):
-	if body.is_in_group("interactable"):
-		#print(body.interact())
-		pass

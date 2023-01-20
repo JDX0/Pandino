@@ -8,7 +8,7 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func transition(next,out_anim = "FadeOut",in_anim = "FadeIn"):

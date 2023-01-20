@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scenes/platforms/platform.gd" id="1_fds6i"]
 [ext_resource type="Texture2D" uid="uid://b86fqgbcolfwr" path="res://assets/world/platform.png" id="2_84tdo"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_m0v5q"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ktu8x"]
 diffuse_texture = ExtResource("2_84tdo")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc7ak"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp3vr"]
 
 [node name="Platform" type="AnimatableBody2D"]
 script = ExtResource("1_fds6i")
@@ -20,11 +20,11 @@ scale = Vector2(12.5, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = SubResource("CanvasTexture_m0v5q")
+texture = SubResource("CanvasTexture_ktu8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(12.5, 3)
-shape = SubResource("RectangleShape2D_uc7ak")
+shape = SubResource("RectangleShape2D_tp3vr")
 one_way_collision = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

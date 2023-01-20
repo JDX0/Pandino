@@ -2,13 +2,11 @@ extends Node
 
 var score = 0
 var max_player_height = 0
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	State.state = "playing"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	update_score()
 
 func update_score():
@@ -36,7 +34,6 @@ func save(field,value):
 func pause():
 	get_tree().paused = true
 	get_node("CanvasLayer/Pause").visible = true
-	#get_node("CanvasLayer/Pause/MarginContainer2/ResumeButton").disabled = false
 	get_node("CanvasLayer/Pause/PauseAnimationPlayer").play("pause")
 	
 func resume():
@@ -50,11 +47,9 @@ func _on_pause_animation_player_animation_finished(anim_name):
 		"resume":
 			print("resume animation finished")
 			get_node("CanvasLayer/Pause").visible = false
-			#get_node("CanvasLayer/Pause/MarginContainer2/ResumeButton").disabled = true
 
 func _on_pause_button_pressed():
 	pause()
-
 
 func _on_resume_button_pressed():
 	resume()

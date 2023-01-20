@@ -1,18 +1,17 @@
 extends Node2D
 
-var platforms = [preload('res://scenes/platforms/platform.tscn')]
-var extensions = [preload('res://scenes/platforms/extensions/spring.tscn')]
+var platforms = [preload('res://scenes/platforms/platform.tscn')] # array of all platforms
+var extensions = [preload('res://scenes/platforms/extensions/spring.tscn')] # array of all platform extensions
 var last_platform_height = 200
 
 # Generator Settings
 var platform_height_delta = -450
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	#for platform_type in platform_types:
-	#	platforms[platform_type]=preload(platform_type)
 	randomize()
-	#get_tree().paused=true
+
+func _process(_delta):
+	generate()
 
 func generate():
 	var player_height = get_node("Character").position.y
@@ -32,6 +31,5 @@ func generate():
 		gen_platform.add_child(gen_extension)
 		add_child(gen_platform)
 		last_platform_height = height
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	generate()
+
+
