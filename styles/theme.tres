@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://df8f7hoga7trb"]
 
-[ext_resource type="StyleBox" path="res://styles/flat.stylebox" id="1_4t66x"]
+[ext_resource type="StyleBox" uid="uid://kdrtvs7lhau2" path="res://styles/flat.stylebox" id="1_4t66x"]
 [ext_resource type="FontFile" uid="uid://b2esxeslojyrn" path="res://assets/fonts/Inria/InriaSans-Regular.otf" id="1_d8lxd"]
 [ext_resource type="FontFile" uid="uid://d1ol3mf2yamwj" path="res://assets/fonts/NotoEmoji/noto-emoji-v34-emoji-700.woff2" id="2_7wyif"]
 
