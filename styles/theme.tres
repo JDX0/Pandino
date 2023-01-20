@@ -1,15 +1,27 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://df8f7hoga7trb"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://df8f7hoga7trb"]
 
-[ext_resource type="FontFile" uid="uid://b2esxeslojyrn" path="res://assets/fonts/OTF/InriaSans-Regular.otf" id="1_bma4m"]
-[ext_resource type="FontFile" uid="uid://d1ol3mf2yamwj" path="res://assets/fonts/noto-emoji-v34-emoji-700.woff2" id="2_y2iqi"]
+[ext_resource type="StyleBox" path="res://styles/flat.stylebox" id="1_4t66x"]
+[ext_resource type="FontFile" uid="uid://b2esxeslojyrn" path="res://assets/fonts/Inria/InriaSans-Regular.otf" id="1_d8lxd"]
+[ext_resource type="FontFile" uid="uid://d1ol3mf2yamwj" path="res://assets/fonts/NotoEmoji/noto-emoji-v34-emoji-700.woff2" id="2_7wyif"]
 
-[sub_resource type="FontVariation" id="FontVariation_bfiw7"]
-base_font = ExtResource("2_y2iqi")
+[sub_resource type="FontVariation" id="FontVariation_7ehsk"]
+base_font = ExtResource("2_7wyif")
 
-[sub_resource type="FontVariation" id="FontVariation_30lko"]
-base_font = ExtResource("1_bma4m")
-fallbacks = [SubResource("FontVariation_bfiw7")]
+[sub_resource type="FontVariation" id="FontVariation_2r5po"]
+base_font = ExtResource("1_d8lxd")
+fallbacks = [SubResource("FontVariation_7ehsk")]
 
 [resource]
+default_font_size = 100
+Button/styles/disabled = ExtResource("1_4t66x")
+Button/styles/focus = ExtResource("1_4t66x")
+Button/styles/hover = ExtResource("1_4t66x")
+Button/styles/normal = ExtResource("1_4t66x")
+Button/styles/pressed = ExtResource("1_4t66x")
 Control/font_sizes/font_size = 100
-Control/fonts/font = SubResource("FontVariation_30lko")
+Control/fonts/font = SubResource("FontVariation_2r5po")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/styles/focus = ExtResource("1_4t66x")
+ItemList/styles/panel = ExtResource("1_4t66x")
+ItemList/styles/selected = ExtResource("1_4t66x")
+ItemList/styles/selected_focus = ExtResource("1_4t66x")

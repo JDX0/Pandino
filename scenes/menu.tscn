@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=5 format=3 uid="uid://iil4sxgpau4p"]
 
-[ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="1_1b65h"]
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_8qot1"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_ljns5"]
-[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_jldn6"]
+[ext_resource type="FontFile" uid="uid://dpyi8bsv5wfql" path="res://assets/fonts/Inria/InriaSans-Bold.otf" id="3_ej4lt"]
+[ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_cv6rm"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,11 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_1b65h")
+theme = ExtResource("1_8qot1")
 script = ExtResource("1_ljns5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -25,27 +27,23 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="SceneLabel" type="Label" parent="MarginContainer"]
+[node name="SceneLabel2" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Menu"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_jldn6")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("3_ej4lt")
+theme_override_font_sizes/font_size = 200
 text = "Play"
 
 [node name="ScoresButton" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -57,6 +55,21 @@ text = "Scores"
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Options"
+
+[node name="GameLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 133.0
+offset_top = 1979.0
+offset_right = 1836.0
+offset_bottom = 2322.0
+grow_vertical = 2
+rotation = -1.5708
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_cv6rm")
+theme_override_font_sizes/font_size = 400
+text = "Pandino
+"
+uppercase = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]

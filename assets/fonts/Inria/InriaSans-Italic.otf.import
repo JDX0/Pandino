@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dpyi8bsv5wfql"
-path="res://.godot/imported/InriaSans-Bold.otf-485f89af27312af10be8ef48f5037933.fontdata"
+uid="uid://byvn82tasspv8"
+path="res://.godot/imported/InriaSans-Italic.otf-1616992db9819373974325c01924d914.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/OTF/InriaSans-Bold.otf"
-dest_files=["res://.godot/imported/InriaSans-Bold.otf-485f89af27312af10be8ef48f5037933.fontdata"]
+source_file="res://assets/fonts/Inria/InriaSans-Italic.otf"
+dest_files=["res://.godot/imported/InriaSans-Italic.otf-1616992db9819373974325c01924d914.fontdata"]
 
 [params]
 

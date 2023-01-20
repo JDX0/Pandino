@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://x4t8wo1lfsss"
-path="res://.godot/imported/InriaSerif-LightItalic.otf-75d490c1cf084cca2ec0f0ae966c2f67.fontdata"
+uid="uid://cb4kcw6n5o28t"
+path="res://.godot/imported/InriaSerif-Bold.otf-8336332d755368585a805b22763fb134.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/OTF/InriaSerif-LightItalic.otf"
-dest_files=["res://.godot/imported/InriaSerif-LightItalic.otf-75d490c1cf084cca2ec0f0ae966c2f67.fontdata"]
+source_file="res://assets/fonts/Inria/InriaSerif-Bold.otf"
+dest_files=["res://.godot/imported/InriaSerif-Bold.otf-8336332d755368585a805b22763fb134.fontdata"]
 
 [params]
 

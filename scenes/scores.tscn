@@ -36,8 +36,13 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Scores"
 
-[node name="ScoreList" type="ItemList" parent="MarginContainer/VBox"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBox"]
+custom_minimum_size = Vector2(900, 1800)
+layout_mode = 2
+
+[node name="ScoreList" type="ItemList" parent="MarginContainer/VBox/ScrollContainer"]
 clip_contents = false
+custom_minimum_size = Vector2(900, 1800)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 auto_height = true

@@ -23,9 +23,9 @@ func _on_selected(result : Array):
 func add_to_list(row : Dictionary):
 	var time_passed = get_time_passed_from_datetime_string(row["created_at"])
 	
-	get_node("MarginContainer/VBox/ScoreList").add_item(str(row["value"]))
-	get_node("MarginContainer/VBox/ScoreList").add_item(str(time_passed))
-	get_node("MarginContainer/VBox/ScoreList").add_item(str(row["profiles"]["username"]))
+	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(row["value"]))
+	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(time_passed))
+	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(row["profiles"]["username"]))
 
 func get_time_passed_from_datetime_string(datetime_string : String):
 	var unix_created = Time.get_unix_time_from_datetime_string(datetime_string)

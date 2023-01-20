@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d1ol3mf2yamwj"
-path="res://.godot/imported/noto-emoji-v34-emoji-700.woff2-727d7e087736966eae77077060f79bd5.fontdata"
+path="res://.godot/imported/noto-emoji-v34-emoji-700.woff2-a021f5c3466cdb4e2274d209a7e996fe.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/noto-emoji-v34-emoji-700.woff2"
-dest_files=["res://.godot/imported/noto-emoji-v34-emoji-700.woff2-727d7e087736966eae77077060f79bd5.fontdata"]
+source_file="res://assets/fonts/NotoEmoji/noto-emoji-v34-emoji-700.woff2"
+dest_files=["res://.godot/imported/noto-emoji-v34-emoji-700.woff2-a021f5c3466cdb4e2274d209a7e996fe.fontdata"]
 
 [params]
 
