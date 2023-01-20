@@ -8,6 +8,8 @@ var gyro = Vector3(0,0,0)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var previous_collider
+
 func _physics_process(delta):
 	var gyrodelta = Input.get_gyroscope()
 	gyro = gyro + gyrodelta
@@ -27,5 +29,20 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
 	move_and_slide()
+	
+	var last_collision = get_last_slide_collision()
+	if last_collision != null:
+		var last_collider = last_collision.get_collider()
+		if last_collider != previous_collider:
+			previous_collider = last_collider
+			if last_collider.is_in_group("interactable"):
+				print(last_collider.interact())
+	else:
+		previous_collider = null
+
+func _on_interact_detection_area_body_entered(body):
+	if body.is_in_group("interactable"):
+		#print(body.interact())
+		pass

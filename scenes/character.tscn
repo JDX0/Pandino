@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://117y4nub8dvd"]
+[gd_scene load_steps=7 format=3 uid="uid://117y4nub8dvd"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_mv22p"]
 [ext_resource type="Texture2D" uid="uid://msyskgeujwmb" path="res://assets/icon.svg" id="2_xf4j6"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2yi3v"]
 radius = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujlx5"]
+size = Vector2(232, 24)
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_mv22p")
@@ -22,6 +25,12 @@ shape = SubResource("CircleShape2D_2yi3v")
 energy = 0.5
 texture = ExtResource("3_hnyio")
 
+[node name="InteractDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDetectionArea"]
+position = Vector2(0, 123)
+shape = SubResource("RectangleShape2D_ujlx5")
+
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = -238.0
 offset_top = -398.0
@@ -29,3 +38,5 @@ offset_right = 260.0
 offset_bottom = -151.0
 theme = ExtResource("4_an1wb")
 text = "Debug"
+
+[connection signal="body_entered" from="InteractDetectionArea" to="." method="_on_interact_detection_area_body_entered"]
