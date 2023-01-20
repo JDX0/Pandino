@@ -17,7 +17,7 @@ func update_score():
 		max_player_height = player_height
 	if player_height > max_player_height + 1000:
 		die()
-	score = round(-max_player_height/100)
+	score = round(-max_player_height/10)
 	get_node("CanvasLayer/MarginContainer/ScoreLabel").text = str(score)
 	
 func die():
