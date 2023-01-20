@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://117y4nub8dvd"]
+[gd_scene load_steps=6 format=3 uid="uid://117y4nub8dvd"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_mv22p"]
 [ext_resource type="Texture2D" uid="uid://msyskgeujwmb" path="res://assets/icon.svg" id="2_xf4j6"]
 [ext_resource type="Texture2D" uid="uid://b28te0qvjqisd" path="res://assets/light.svg" id="3_hnyio"]
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="4_an1wb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2yi3v"]
 radius = 128.0
@@ -20,3 +21,11 @@ shape = SubResource("CircleShape2D_2yi3v")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.5
 texture = ExtResource("3_hnyio")
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -238.0
+offset_top = -398.0
+offset_right = 260.0
+offset_bottom = -151.0
+theme = ExtResource("4_an1wb")
+text = "Debug"
