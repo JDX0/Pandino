@@ -35,6 +35,14 @@ text = "Options"
 layout_mode = 2
 size_flags_vertical = 4
 
+[node name="AccountInfoButton" type="Button" parent="MarginContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Account Info
+"
+
 [node name="SoundOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer"]
 layout_mode = 2
 
@@ -63,4 +71,5 @@ theme_override_font_sizes/font_size = 100
 text = "Back
 "
 
+[connection signal="pressed" from="MarginContainer/OptionsContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

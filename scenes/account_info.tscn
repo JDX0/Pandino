@@ -46,10 +46,10 @@ expand_to_text_length = true
 virtual_keyboard_type = 5
 
 [node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 500)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "eshge"
-placeholder_text = "Profile Description"
+placeholder_text = "Description"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

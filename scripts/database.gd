@@ -49,8 +49,8 @@ func sign_up(email,password):
 	State.user = auth_task.user
 	print(State.user)
 	
-func insert_account_info(username,description):
-	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}])
+func replace_account_info(username,description):
+	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}],true)
 	Supabase.database.connect("error", _on_database_error)
 	Supabase.database.query(query)
 

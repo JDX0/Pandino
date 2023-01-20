@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_back_button_pressed():
 	TransitionScene.transition("res://scenes/menu.tscn")
+
+
+func _on_account_info_button_pressed():
+	TransitionScene.transition("res://scenes/account_info.tscn")
