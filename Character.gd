@@ -32,6 +32,9 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
+	if position.x < -680 or position.x > 680:
+		position.x = -position.x
+	
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
 		var last_collider = last_collision.get_collider()
