@@ -4,10 +4,9 @@ const SPEED = 1000
 const JUMP_VELOCITY = -1000
 const SPRING_VELOCITY = -1000
 
+var sensitivity = State.get_setting("sensitivity")
 var gyro = Vector3(0,0,0)
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 var previous_collider
 
 func _physics_process(delta):
@@ -24,7 +23,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	var direction = gyro.y/5 + Input.get_axis("ui_left", "ui_right") # Gyroscope + Keyboard
+	var direction = gyro.y/8*sensitivity + Input.get_axis("ui_left", "ui_right")*sensitivity # Gyroscope + Keyboard
 	if direction:
 		velocity.x = direction * SPEED
 	else:

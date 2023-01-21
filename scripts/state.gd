@@ -2,10 +2,13 @@ extends Node
 
 var state = "menu"
 var auth = "no_user"
-var user : SupabaseUser 
+var user : SupabaseUser
+var settings = {
+	"sensitivity": 1
+} 
 
-func _ready():
-	pass
+func set_setting(field,value):
+	settings[field] = value
 
-func _process(_delta):
-	pass
+func get_setting(field):
+	return settings[field]
