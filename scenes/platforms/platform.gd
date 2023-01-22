@@ -1,6 +1,7 @@
 extends AnimatableBody2D
 
 const INTERACT_TYPE = "platform"
+const EXTENSION_HEIGHT = -30
 
 func _ready():
 	pass

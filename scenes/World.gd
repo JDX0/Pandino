@@ -25,7 +25,8 @@ func generate():
 			gen_platform.scale.x = -gen_platform.scale.x
 		gen_platform.set_position(Vector2(randx,height))
 		var gen_extension = extensions[0].instantiate()
-		gen_extension.set_position(gen_platform.get_child(0).position)
+		var platform_size_x = gen_platform.get_child(2).shape.get_rect().size.x
+		gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x,gen_platform.EXTENSION_HEIGHT))
 		gen_extension.add_to_group("interactable")
 		gen_platform.add_to_group("interactable")
 		gen_platform.add_child(gen_extension)
