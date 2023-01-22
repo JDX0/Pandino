@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/World.gd" id="2_kkpfb"]
 [ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
-[ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="6_75mj2"]
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="6_jnxvp"]
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -86,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_75mj2")
+theme = ExtResource("6_jnxvp")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
@@ -119,34 +119,33 @@ process_mode = 3
 offset_top = 2340.0
 offset_right = 1080.0
 offset_bottom = 2640.0
-theme = ExtResource("6_75mj2")
+theme = ExtResource("6_jnxvp")
 
 [node name="PauseAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Pause"]
 libraries = {
 "": SubResource("AnimationLibrary_eaxjl")
 }
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Pause"]
-custom_minimum_size = Vector2(0, 300)
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Pause"]
 layout_mode = 2
-size_flags_vertical = 8
-color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/Pause/MarginContainer2"]
+[node name="MenuButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
-text = "Score"
-clip_text = true
+text = "Menu
+"
+icon_alignment = 2
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/MarginContainer2"]
+[node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -159,4 +158,5 @@ icon_alignment = 2
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="animation_finished" from="CanvasLayer/Pause/PauseAnimationPlayer" to="." method="_on_pause_animation_player_animation_finished"]
-[connection signal="pressed" from="CanvasLayer/Pause/MarginContainer2/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/ResumeButton" to="." method="_on_resume_button_pressed"]

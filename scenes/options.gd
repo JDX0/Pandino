@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	get_node("MarginContainer/OptionsContainer/GameOptions/SensitivitySlider").value = State.get_setting("sensitivity")
+	get_node("MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider").value = State.get_setting("sensitivity")
 
 func _process(_delta):
 	pass
@@ -14,4 +14,4 @@ func _on_account_info_button_pressed():
 
 func _on_sensitivity_slider_drag_ended(value_changed):
 	if value_changed:
-		State.set_setting("sensitivity",get_node("MarginContainer/OptionsContainer/GameOptions/SensitivitySlider").value)
+		State.set_setting("sensitivity",get_node("MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider").value)

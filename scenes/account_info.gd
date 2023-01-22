@@ -1,8 +1,13 @@
 extends Control
 
+var description_edit
+var username_edit
+
 func _ready():
 	get_account_info(State.user.id)
-
+	description_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionEdit")
+	username_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UsernameEdit")
+	
 func _process(_delta):
 	pass
 
@@ -12,9 +17,9 @@ func get_account_info(uuid):
 	Supabase.database.query(query)
 	
 func _on_account_info_selected(result : Array):
-	get_node("MarginContainer/VBoxContainer/UsernameEdit").text = result[0]["username"]
-	get_node("MarginContainer/VBoxContainer/DescriptionEdit").text = result[0]["description"]
+	username_edit.text = result[0]["username"]
+	description_edit.text = result[0]["description"]
 
 func _on_finish_button_pressed():
-	Database.upsert_account_info(get_node("MarginContainer/VBoxContainer/UsernameEdit").text,get_node("MarginContainer/VBoxContainer/DescriptionEdit").text)
+	Database.upsert_account_info(username_edit.text,description_edit.text)
 	TransitionScene.transition("res://scenes/menu.tscn")

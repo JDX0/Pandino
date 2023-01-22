@@ -53,3 +53,7 @@ func _on_pause_button_pressed():
 
 func _on_resume_button_pressed():
 	resume()
+
+func _on_menu_button_pressed():
+	TransitionScene.transition("res://scenes/menu.tscn")
+	resume()

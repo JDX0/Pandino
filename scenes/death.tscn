@@ -51,6 +51,13 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
 text = "Scores"
 
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Menu"
+
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 visible = false
 layout_mode = 2
@@ -60,3 +67,4 @@ texture = ExtResource("2_dprjd")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

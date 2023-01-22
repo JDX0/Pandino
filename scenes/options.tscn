@@ -36,7 +36,13 @@ text = "Options"
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="AccountInfoButton" type="Button" parent="MarginContainer/OptionsContainer"]
+[node name="AccountPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/AccountPanel"]
+layout_mode = 2
+
+[node name="AccountInfoButton" type="Button" parent="MarginContainer/OptionsContainer/AccountPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -44,28 +50,40 @@ theme_override_font_sizes/font_size = 100
 text = "Account Info
 "
 
-[node name="SoundOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer"]
+[node name="SoundPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="MarginContainer/OptionsContainer/SoundOptions"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/SoundPanel"]
+layout_mode = 2
+
+[node name="SoundOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Master Volume
 "
 
-[node name="MasterSlider" parent="MarginContainer/OptionsContainer/SoundOptions" instance=ExtResource("3_wcnch")]
+[node name="MasterSlider" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 
-[node name="GameOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer"]
+[node name="ControlsPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="Sensitivity" type="Label" parent="MarginContainer/OptionsContainer/GameOptions"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/ControlsPanel"]
+layout_mode = 2
+
+[node name="GameOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Sensitivity" type="Label" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Sensitivity
 "
 
-[node name="SensitivitySlider" parent="MarginContainer/OptionsContainer/GameOptions" instance=ExtResource("3_wcnch")]
+[node name="SensitivitySlider" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 max_value = 2.0
 step = 0.01
@@ -84,6 +102,6 @@ theme_override_font_sizes/font_size = 100
 text = "Back
 "
 
-[connection signal="pressed" from="MarginContainer/OptionsContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
-[connection signal="drag_ended" from="MarginContainer/OptionsContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="pressed" from="MarginContainer/OptionsContainer/AccountPanel/MarginContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
+[connection signal="drag_ended" from="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
