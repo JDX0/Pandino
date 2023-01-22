@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 1000
 const JUMP_VELOCITY = -1000
-const SPRING_VELOCITY = -1000
+const SPRING_VELOCITY = -2500
 
 var sensitivity = State.get_setting("sensitivity")
 var gyro = Vector3(0,0,0)
@@ -28,11 +28,6 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	move_and_slide()
-	
-	if position.x < -680 or position.x > 680:
-		position.x = -position.x
 	
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
@@ -40,7 +35,14 @@ func _physics_process(delta):
 		if last_collider != previous_collider:
 			previous_collider = last_collider
 			if last_collider.is_in_group("interactable"):
-				print(last_collider.interact())
+				var interact_type = last_collider.interact()
+				if interact_type[0] == "spring":
+					velocity.y = SPRING_VELOCITY
 	else:
 		previous_collider = null
+		
+	move_and_slide()
+		
+	if position.x < -680 or position.x > 680:
+		position.x = -position.x
 
