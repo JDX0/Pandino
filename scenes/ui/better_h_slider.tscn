@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkviogb032h1s"]
+
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_iulo8"]
+[ext_resource type="Script" path="res://scenes/ui/better_h_slider.gd" id="2_3kmau"]
+
+[node name="BetterHSlider" type="HSlider"]
+custom_minimum_size = Vector2(750, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -170.0
+offset_right = 375.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme = ExtResource("1_iulo8")
+script = ExtResource("2_3kmau")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -150.0
+offset_right = 234.0
+offset_bottom = -27.0
+text = "0.265"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
+[connection signal="drag_started" from="." to="." method="_on_drag_started"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
