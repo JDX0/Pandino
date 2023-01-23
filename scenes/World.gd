@@ -9,7 +9,7 @@ var last_platform_height = 200
 var platform_height_delta = -450
 
 var spring_chance = 0.1
-var coin_chance = 1
+var coin_chance = 0.34
 
 func _ready():
 	randomize()

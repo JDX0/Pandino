@@ -12,10 +12,7 @@ var previous_collider
 func _physics_process(delta):
 	var gyrodelta = Input.get_gyroscope()
 	gyro = gyro + gyrodelta
-	#if gyro.y > 0:
-	#	self.scale.x = 1
-	#else:
-	#	self.scale.x = -1
+
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -28,20 +25,21 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction > 0:
+		self.scale.x = 1
+	else:
+		self.scale.x = -1
 	
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
 		var last_collider = last_collision.get_collider()
-		if last_collider != previous_collider:
+		if last_collider != previous_collider and last_collider != null:
 			previous_collider = last_collider
 			if last_collider.is_in_group("interactable"):
 				var interact_type = last_collider.interact()
 				match interact_type[0]:
 					"spring":
 						velocity.y = SPRING_VELOCITY
-					"coin":
-						State.coins += 1
-						print("coin")
 	else:
 		previous_collider = null
 		
@@ -50,3 +48,12 @@ func _physics_process(delta):
 	if position.x < -680 or position.x > 680:
 		position.x = -position.x
 
+
+
+func _on_non_physical_collision_detector_area_entered(area):
+	print("area_entered")
+	if area.is_in_group("interactable"):
+		var interact_type = area.interact()
+		match interact_type[0]:
+			"coin":
+				State.coins += 1

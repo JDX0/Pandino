@@ -8,6 +8,7 @@ func _ready():
 
 func _process(_delta):
 	update_score()
+	update_coins()
 
 func update_score():
 	var player_height = get_node("World/Character").position.y
@@ -16,7 +17,10 @@ func update_score():
 	if player_height > max_player_height + 1000:
 		die()
 	score = round(-max_player_height/10)
-	get_node("CanvasLayer/MarginContainer/ScoreLabel").text = str(score)
+	get_node("CanvasLayer/MarginContainer/HBoxContainer/ScoreLabel").text = str(score)
+	
+func update_coins():
+	$CanvasLayer/MarginContainer/HBoxContainer/CoinLabel.text = str(State.coins)
 	
 func die():
 	if State.state != "dead":

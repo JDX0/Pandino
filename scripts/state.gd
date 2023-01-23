@@ -4,10 +4,10 @@ extends Node
 
 var state = "menu"
 var auth = "no_user"
-var coins 
+var coins = 0
 var user : SupabaseUser
 var settings = {
-	"sensitivity": 66
+	"sensitivity": 1
 } 
 
 func save():
