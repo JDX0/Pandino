@@ -2,6 +2,8 @@ extends Control
 
 func _ready():
 	get_node("MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider").value = State.get_setting("sensitivity")
+	State.save()
+	State.get_save()
 
 func _process(_delta):
 	pass

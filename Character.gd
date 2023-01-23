@@ -36,8 +36,12 @@ func _physics_process(delta):
 			previous_collider = last_collider
 			if last_collider.is_in_group("interactable"):
 				var interact_type = last_collider.interact()
-				if interact_type[0] == "spring":
-					velocity.y = SPRING_VELOCITY
+				match interact_type[0]:
+					"spring":
+						velocity.y = SPRING_VELOCITY
+					"coin":
+						State.coins += 1
+						print("coin")
 	else:
 		previous_collider = null
 		
