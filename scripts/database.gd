@@ -28,19 +28,16 @@ func _on_signed_in(user : SupabaseUser):
 	State.user = user
 	print(State.user)
 	
-func sign_up(email,password):
-	var auth_task: AuthTask = await Supabase.auth.sign_up(
-		email,
-		password
-	).completed
-	State.user = auth_task.user
-	print(State.user)
-	
-func upsert_account_info(username,description):
-	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}],true)
+func insert_account_info(username,description):
+	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}])
 	Supabase.database.connect("error", _on_database_error)
 	Supabase.database.query(query)
 	
+func update_account_info(username,description):
+	var query = SupabaseQuery.new().from("profiles").update({"username":username,"description":description}).eq("id",State.user.id)
+	Supabase.database.connect("error", _on_database_error)
+	Supabase.database.query(query)
+
 func _on_auth_error(error : SupabaseAuthError):
 	print(error)
 	

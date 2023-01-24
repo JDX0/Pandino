@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -19,10 +19,10 @@ func _on_drag_started():
 	label.visible = true
 
 
-func _on_drag_ended(value_changed):
+func _on_drag_ended(_val_changed):
 	label.visible = false
 
 
-func _on_value_changed(value):
-	label.text = str(value)
+func _on_value_changed(val):
+	label.text = str(val)
 	label.position.x = (get_rect().size.x-grabber_width)*get_as_ratio()-0.5*label.get_rect().size.x+0.5*grabber_width

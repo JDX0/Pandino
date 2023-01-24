@@ -8,120 +8,14 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "BaseTask",
-"class": &"AuthTask",
-"language": &"GDScript",
-"path": "res://addons/supabase/Auth/auth_task.gd"
-}, {
-"base": "RefCounted",
-"class": &"BaseError",
-"language": &"GDScript",
-"path": "res://addons/supabase/base_error.gd"
-}, {
-"base": "RefCounted",
-"class": &"BaseTask",
-"language": &"GDScript",
-"path": "res://addons/supabase/base_task.gd"
-}, {
-"base": "BaseTask",
-"class": &"DatabaseTask",
-"language": &"GDScript",
-"path": "res://addons/supabase/Database/database_task.gd"
-}, {
-"base": "RefCounted",
-"class": &"RealtimeChannel",
-"language": &"GDScript",
-"path": "res://addons/supabase/Realtime/realtime_channel.gd"
-}, {
-"base": "Node",
-"class": &"RealtimeClient",
-"language": &"GDScript",
-"path": "res://addons/supabase/Realtime/realtime_client.gd"
-}, {
-"base": "Node",
-"class": &"StorageBucket",
-"language": &"GDScript",
-"path": "res://addons/supabase/Storage/storage_bucket.gd"
-}, {
-"base": "BaseTask",
-"class": &"StorageTask",
-"language": &"GDScript",
-"path": "res://addons/supabase/Storage/storage_task.gd"
-}, {
-"base": "Node",
-"class": &"SupabaseAuth",
-"language": &"GDScript",
-"path": "res://addons/supabase/Auth/auth.gd"
-}, {
-"base": "BaseError",
-"class": &"SupabaseAuthError",
-"language": &"GDScript",
-"path": "res://addons/supabase/Auth/auth_error.gd"
-}, {
-"base": "Node",
-"class": &"SupabaseDatabase",
-"language": &"GDScript",
-"path": "res://addons/supabase/Database/database.gd"
-}, {
-"base": "BaseError",
-"class": &"SupabaseDatabaseError",
-"language": &"GDScript",
-"path": "res://addons/supabase/Database/database_error.gd"
-}, {
-"base": "RefCounted",
-"class": &"SupabaseQuery",
-"language": &"GDScript",
-"path": "res://addons/supabase/Database/query.gd"
-}, {
-"base": "Node",
-"class": &"SupabaseRealtime",
-"language": &"GDScript",
-"path": "res://addons/supabase/Realtime/realtime.gd"
-}, {
-"base": "Node",
-"class": &"SupabaseStorage",
-"language": &"GDScript",
-"path": "res://addons/supabase/Storage/storage.gd"
-}, {
-"base": "BaseError",
-"class": &"SupabaseStorageError",
-"language": &"GDScript",
-"path": "res://addons/supabase/Storage/storage_error.gd"
-}, {
-"base": "RefCounted",
-"class": &"SupabaseUser",
-"language": &"GDScript",
-"path": "res://addons/supabase/Auth/user.gd"
-}]
-_global_script_class_icons={
-"AuthTask": "",
-"BaseError": "",
-"BaseTask": "",
-"DatabaseTask": "",
-"RealtimeChannel": "",
-"RealtimeClient": "",
-"StorageBucket": "",
-"StorageTask": "",
-"SupabaseAuth": "",
-"SupabaseAuthError": "",
-"SupabaseDatabase": "",
-"SupabaseDatabaseError": "",
-"SupabaseQuery": "",
-"SupabaseRealtime": "",
-"SupabaseStorage": "",
-"SupabaseStorageError": "",
-"SupabaseUser": ""
-}
-
 [application]
 
 config/name="Pandino"
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/iedeix.png"
 boot_splash/fullsize=false
-boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://assets/icon.svg"
 
 [autoload]
@@ -139,6 +33,10 @@ window/size/mode=3
 window/size/borderless=true
 window/handheld/orientation=5
 window/stretch/mode="viewport"
+
+[editor]
+
+export/convert_text_resources_to_binary=true
 
 [editor_plugins]
 

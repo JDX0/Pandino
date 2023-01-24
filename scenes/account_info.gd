@@ -21,5 +21,5 @@ func _on_account_info_selected(result : Array):
 	description_edit.text = result[0]["description"]
 
 func _on_finish_button_pressed():
-	Database.upsert_account_info(username_edit.text,description_edit.text)
+	Database.update_account_info(username_edit.text,description_edit.text)
 	TransitionScene.transition("res://scenes/menu.tscn")
