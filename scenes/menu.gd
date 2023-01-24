@@ -14,3 +14,6 @@ func _on_play_button_pressed():
 
 func _on_scores_button_pressed():
 	TransitionScene.transition("res://scenes/scores.tscn")
+
+func _on_shop_button_pressed():
+	TransitionScene.transition("res://scenes/shop.tscn")

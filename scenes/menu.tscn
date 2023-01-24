@@ -46,6 +46,11 @@ theme_override_fonts/font = ExtResource("3_ej4lt")
 theme_override_font_sizes/font_size = 200
 text = "Play"
 
+[node name="ShopButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Shop"
+
 [node name="ScoresButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -72,5 +77,6 @@ text = "Pandino
 uppercase = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
