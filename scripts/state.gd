@@ -1,6 +1,6 @@
 extends Node
 
-var save_manager = Save.new()
+var save_manager = Save.new("user://pandino.pansave")
  
 var first_run = false
 
