@@ -1,30 +1,37 @@
 extends Node
 
-
+var save_manager = Save.new()
+ 
+var first_run = false
 
 var state = "menu"
 var auth = "no_user"
 var coins = 0
 var user : SupabaseUser
 var settings = {
-	"sensitivity": 1
-} 
+	"sensitivity": 1,
+	"master_volume": 100
+ } 
+
+func _ready():
+	if !save_manager.save_exists():
+		first_run = true
+		save()
+	load_save()
+
 
 func save():
-	#var file = FileAccess.open_encrypted_with_pass("user://pandino.pand", FileAccess.WRITE, "pswd")
-	var file = FileAccess.open_compressed("user://pandino.pand", FileAccess.WRITE)
-	file.store_var(get_as_dict())
+	save_manager.save(get_as_dict())
 
-func get_save():
-	#var file = FileAccess.open_encrypted_with_pass("user://pandino.pand", FileAccess.READ, "pswd")
-	var file = FileAccess.open_compressed("user://pandino.pand", FileAccess.READ)
-	print(file.get_var())
+func load_save():
+	set_as_dict(save_manager.load_save())
+
 	
 func set_as_dict(dict : Dictionary):
 	state = dict["state"]
 	auth = dict["auth"]
 	coins = dict["coins"]
-	user = dict["user"]
+	#user = dict["user"]
 	settings = dict["settings"]
 
 func get_as_dict():
@@ -32,7 +39,7 @@ func get_as_dict():
 		"state":state,
 		"auth":auth,
 		"coins":coins,
-		"user":user,
+		#"user":user,
 		"settings":settings
 	}
 

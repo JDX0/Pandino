@@ -12,6 +12,7 @@ func _process(_delta):
 	pass
 
 func transition(next,out_anim = "FadeOut",in_anim = "FadeIn"):
+	State.save()
 	get_node("AnimationPlayer").play(out_anim)
 	next_scene = next
 	in_animation = in_anim

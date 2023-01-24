@@ -103,5 +103,6 @@ text = "Back
 "
 
 [connection signal="pressed" from="MarginContainer/OptionsContainer/AccountPanel/MarginContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
+[connection signal="drag_ended" from="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider" to="." method="_on_master_slider_drag_ended"]
 [connection signal="drag_ended" from="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
