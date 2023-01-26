@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var previous_collider
 
 func _physics_process(delta):
+	print(position.x)
 	var gyrodelta = Input.get_gyroscope()
 	gyro = gyro + gyrodelta
 

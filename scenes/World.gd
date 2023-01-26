@@ -1,18 +1,24 @@
 extends Node2D
 
-var platforms = [preload('res://scenes/platforms/platform.tscn')] # array of all platforms
-var extensions = [preload('res://scenes/platforms/extensions/spring.tscn')] # array of all platform extensions
-var detached_extensions = [preload('res://scenes/platforms/extensions/detached/coin.tscn')] # array of all platform extensions
+var viewport_rect
 var last_platform_height = 200
 
 # Generator Settings
+var platforms = {"static":preload('res://scenes/platforms/platform.tscn'),"moving":preload('res://scenes/platforms/platform_moving.tscn')} # Dictionary of all platforms
+var extensions = {"spring":preload('res://scenes/platforms/extensions/spring.tscn')} # Dictionary of all platform extensions
+var detached_extensions = {"coin":preload('res://scenes/platforms/extensions/detached/coin.tscn')} # Dictinary of all platform extensions
 var platform_height_delta = -450
+## The region in which moving platforms bounce around
+## Relative to platform height
+var move_area = Rect2(-540,0,1080,10)
 
 var spring_chance = 0.1
 var coin_chance = 0.34
 
 func _ready():
 	randomize()
+	viewport_rect = get_viewport().get_camera_2d().get_viewport_transform()
+	print(viewport_rect)
 
 func _process(_delta):
 	generate()
@@ -22,28 +28,41 @@ func generate():
 	
 	if player_height < last_platform_height + 100:
 		var height = last_platform_height+platform_height_delta
-		var gen_platform
-		gen_platform = platforms[0].instantiate()
-		var randx = int(randi_range(-500,500))
+		var platform_type = get_random_key_from_dict(platforms)
+		var platform = platforms[platform_type].instantiate()
+		if platform_type == "moving":
+			var current_platform_move_area = move_area
+			current_platform_move_area.position.y = height
+			platform.init(current_platform_move_area)
+		var randx = int(randi_range(-380+platform.get_size().x,380-platform.get_size().x))
 		if randx < 0:
-			gen_platform.scale.x = -gen_platform.scale.x
-		gen_platform.set_position(Vector2(randx,height))
-		gen_platform.add_to_group("interactable")
+			platform.scale.x = -platform.scale.x
+		platform.set_position(Vector2(randx,height))
+		platform.add_to_group("interactable")
+		
+		# Generate spring
 		if randf() < spring_chance:
-			var gen_extension = extensions[0].instantiate()
-			var platform_size_x = gen_platform.get_child(2).shape.get_rect().size.x
-			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x,gen_platform.EXTENSION_HEIGHT))
+			var gen_extension = get_random_from_dict(extensions).instantiate()
+			var platform_size_x = platform.get_child(2).shape.get_rect().size.x
+			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x,platform.EXTENSION_HEIGHT))
 			gen_extension.add_to_group("interactable")
-			gen_platform.add_child(gen_extension)
+			platform.add_child(gen_extension)
+			
+		# Generate coin
 		if randf() < coin_chance:
-			var gen_extension = detached_extensions[0].instantiate()
-			var platform_size_x = gen_platform.get_child(2).shape.get_rect().size.x
+			var gen_extension = get_random_from_dict(detached_extensions).instantiate()
+			var platform_size_x = platform.get_child(2).shape.get_rect().size.x
 			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x*2,platform_height_delta*randf()))
 			gen_extension.add_to_group("interactable")
-			gen_platform.add_child(gen_extension)
+			platform.add_child(gen_extension)
 		
-		
-		add_child(gen_platform)
+		add_child(platform)
 		last_platform_height = height
+		
+func get_random_from_dict(d : Dictionary):
+	return d[d.keys()[randi()%d.keys().size()]]
+	
+func get_random_key_from_dict(d : Dictionary):
+	return d.keys()[randi()%d.keys().size()]
 
 
