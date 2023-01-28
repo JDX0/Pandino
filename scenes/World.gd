@@ -4,6 +4,9 @@ var viewport_rect
 var last_platform_height = 200
 
 # Generator Settings
+## Difficulty increases over time
+var difficulty = 1
+
 var platforms = {"static":preload('res://scenes/platforms/platform.tscn'),"moving":preload('res://scenes/platforms/platform_moving.tscn')} # Dictionary of all platforms
 var extensions = {"spring":preload('res://scenes/platforms/extensions/spring.tscn')} # Dictionary of all platform extensions
 var detached_extensions = {"coin":preload('res://scenes/platforms/extensions/detached/coin.tscn')} # Dictinary of all platform extensions

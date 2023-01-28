@@ -10,11 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var previous_collider
 
 func _physics_process(delta):
-	print(position.x)
 	var gyrodelta = Input.get_gyroscope()
 	gyro = gyro + gyrodelta
 
-		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -22,14 +20,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 	var direction = gyro.y/8*sensitivity + Input.get_axis("ui_left", "ui_right")*sensitivity # Gyroscope + Keyboard
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.x = direction * SPEED
+	
 	if direction > 0:
-		self.scale.x = 1
-	else:
-		self.scale.x = -1
+		$Sprite2D.scale.x = 0.5
+	if direction < 0:
+		$Sprite2D.scale.x = -0.5
 	
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:
@@ -50,9 +46,8 @@ func _physics_process(delta):
 		position.x = -position.x
 
 
-
 func _on_non_physical_collision_detector_area_entered(area):
-	print("area_entered")
+	print(gravity)
 	if area.is_in_group("interactable"):
 		var interact_type = area.interact()
 		match interact_type[0]:

@@ -1,11 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=14 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="2_kkpfb"]
+[ext_resource type="Script" path="res://scenes/Background.gd" id="3_rth78"]
 [ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="6_jnxvp"]
+
+[sub_resource type="Gradient" id="Gradient_3cg1j"]
+colors = PackedColorArray(0.0225569, 0.0760098, 0.134652, 1, 0.074263, 0.0925103, 0.13005, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ls0b"]
+gradient = SubResource("Gradient_3cg1j")
+width = 1080
+height = 2340
+fill_from = Vector2(0.546296, 0.0213675)
+fill_to = Vector2(0.694444, 0.991453)
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -67,14 +78,21 @@ script = ExtResource("1_jyict")
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("2_kkpfb")
 
+[node name="Background" type="Sprite2D" parent="World"]
+texture = SubResource("GradientTexture2D_8ls0b")
+script = ExtResource("3_rth78")
+
 [node name="Character" parent="World" instance=ExtResource("2_boxkp")]
+unique_name_in_owner = true
 position = Vector2(0, -168)
 
 [node name="Platform" parent="World" instance=ExtResource("4_2xq3v")]
 
 [node name="CharacterCamera" type="Camera2D" parent="World"]
+unique_name_in_owner = true
 offset = Vector2(0, -250)
 current = true
+process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("5_3da65")
 

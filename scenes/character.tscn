@@ -1,32 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://117y4nub8dvd"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_mv22p"]
-[ext_resource type="Texture2D" uid="uid://msyskgeujwmb" path="res://assets/icon.svg" id="2_xf4j6"]
-[ext_resource type="Texture2D" uid="uid://b28te0qvjqisd" path="res://assets/light.svg" id="3_hnyio"]
+[ext_resource type="Texture2D" uid="uid://dqyi1fojhk1ix" path="res://assets/character/pandanew.png" id="2_7b7t4"]
+[ext_resource type="Texture2D" uid="uid://bl2uu2kpc1rt0" path="res://assets/character/pandanew_n.png" id="3_cwxe4"]
+[ext_resource type="Texture2D" uid="uid://glcbwag3kqxh" path="res://assets/character/pandanew_s.png" id="4_taxnt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2yi3v"]
-radius = 128.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_chthm"]
-size = Vector2(252, 252)
+[sub_resource type="CanvasTexture" id="CanvasTexture_ohs18"]
+diffuse_texture = ExtResource("2_7b7t4")
+normal_texture = ExtResource("3_cwxe4")
+specular_texture = ExtResource("4_taxnt")
+specular_shininess = 0.52
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_mv22p")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-39, 115, -51, 46, -73, -34, -131, -108, -116, -214, -16, -252, 79, -217, 115, -103, 62, -34, 38, -13, 22, 114)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_xf4j6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2yi3v")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.5
-texture = ExtResource("3_hnyio")
+position = Vector2(0, -50)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CanvasTexture_ohs18")
 
 [node name="NonPhysicalCollisionDetector" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NonPhysicalCollisionDetector"]
-shape = SubResource("RectangleShape2D_chthm")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NonPhysicalCollisionDetector"]
+visible = false
+polygon = PackedVector2Array(-39, 115, -51, 46, -73, -34, -131, -108, -116, -214, -16, -252, 79, -217, 115, -103, 62, -34, 38, -13, 22, 114)
 
 [connection signal="area_entered" from="NonPhysicalCollisionDetector" to="." method="_on_non_physical_collision_detector_area_entered"]

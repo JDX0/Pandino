@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/platforms/platform.gd" id="1_fds6i"]
 [ext_resource type="Texture2D" uid="uid://b86fqgbcolfwr" path="res://assets/world/platforms/platform.png" id="2_fypvf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbw75"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyvgt"]
 size = Vector2(250, 60)
 
 [node name="Platform" type="AnimatableBody2D"]
@@ -18,7 +18,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_fypvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vbw75")
+shape = SubResource("RectangleShape2D_pyvgt")
 one_way_collision = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
