@@ -17,8 +17,10 @@ func get_account_info(uuid):
 	Supabase.database.query(query)
 	
 func _on_account_info_selected(result : Array):
-	username_edit.text = result[0]["username"]
-	description_edit.text = result[0]["description"]
+	if result[0]["username"] != null:
+		username_edit.text = result[0]["username"]
+	if result[0]["description"] != null:
+		description_edit.text = result[0]["description"]
 
 func _on_finish_button_pressed():
 	Database.update_account_info(username_edit.text,description_edit.text)

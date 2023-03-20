@@ -28,5 +28,5 @@ func _on_sign_up_button_pressed():
 	sign_up(email_edit.text,password_edit.text)
 	
 func _on_testing_login_button_pressed():
-	Database.sign_in("dowagav865@fom8.com","password")
+	Database.sign_in("asecvqy669@tmail9.com","ciscocisco")
 	TransitionScene.transition("res://scenes/menu.tscn")
