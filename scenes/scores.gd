@@ -1,27 +1,42 @@
 extends Control
 
+var scrolling = false
+var loading = false
+var page_size = 20
+var page = 0
+
 func _ready():
-	get_online_scores()
+	Supabase.database.connect("selected", _on_selected)
+	Supabase.database.connect("error", _on_database_error)
+	get_online_scores_page(page,page_size)
+	debug_scroll()
+	$MarginContainer/VBox/ScrollContainer/VBoxContainer/Loading/AnimationPlayer.play("loading")
 
 func _process(_delta):
-	pass
-
-func get_online_scores():
-	Supabase.database.connect("selected", self._on_selected)
-	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,profiles(username)"])).order('value',1)
-	Supabase.database.query(query)
+	if scrolling:
+		debug_scroll()
+	if %List.get_global_rect().position.y+%List.get_global_rect().size.y<2000 and not loading:
+		page += 1
+		get_online_scores_page(page, page_size)
+		pass
+		
+func get_online_scores_page(page_n:int,pg_size:int):
+	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,profiles(username)"])).order('value',1).range(page_n*pg_size,page_n*pg_size+pg_size-1)
+	Supabase.database.query(query)																				#,[count:'exact']
+	page += 1
+	show_loading(true)
 
 func _on_selected(result : Array):
-	print(result)
 	for row in result:
 		add_to_list(row)
+	show_loading(false)
 	
 func add_to_list(row : Dictionary):
 	var time_passed = get_time_passed_from_datetime_string(row["created_at"])
 	
-	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(row["value"]))
-	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(time_passed))
-	get_node("MarginContainer/VBox/ScrollContainer/ScoreList").add_item(str(row["profiles"]["username"]))
+	%List.add_item(str(row["value"]))
+	%List.add_item(str(time_passed))
+	%List.add_item(str(row["profiles"]["username"]))
 
 func get_time_passed_from_datetime_string(datetime_string : String):
 	var unix_created = Time.get_unix_time_from_datetime_string(datetime_string)
@@ -42,5 +57,29 @@ func get_time_passed_from_datetime_string(datetime_string : String):
 	#	return str(floor(seconds_passed/2629757))+" month"
 	return str(floor(seconds_passed/31556952))+" y" # more than 1 year
 	
+
+func show_loading(showl:bool):
+	loading = showl
+	$MarginContainer/VBox/ScrollContainer/VBoxContainer/Loading/LoadingIndicator.visible = showl
+	
+
+func _on_database_error(error : SupabaseDatabaseError):
+	print(error)
+
+
+func debug_scroll():
+	#$MarginContainer/VBoxContainer/DebugLabel.text = str($MarginContainer/VBox/ScrollContainer.scroll_vertical)
+	$MarginContainer/VBoxContainer/DebugLabel2.text = str(%List.get_global_rect().position.y+%List.get_global_rect().size.y)
+	$MarginContainer/VBoxContainer/DebugLabel.text = str(%List.get_end().y<1800)
+
+
 func _on_back_button_pressed():
 	TransitionScene.transition("res://scenes/menu.tscn")
+
+
+func _on_scroll_container_scroll_started():
+	scrolling = true
+
+
+func _on_scroll_container_scroll_ended():
+	scrolling = false
