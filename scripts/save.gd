@@ -1,5 +1,5 @@
-class_name Save
 extends Node
+class_name Save
 
 ## Class to handle saving and loading save data
 ##
