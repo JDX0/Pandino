@@ -10,6 +10,8 @@ func _ready():
 	error_label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ErrorLabel")
 	Supabase.auth.connect("signed_in", _on_signed_in)
 	Supabase.auth.connect("error", _on_auth_error)
+	TransitionScene.aplayer.play("UncoverIn")
+	%Loading.set_animation("HorizontalLoading")
 
 func _process(_delta):
 	pass
@@ -18,7 +20,7 @@ func sign_up(email,password):
 	error_label.visible = false
 	%Loading.visible = true
 	Supabase.auth.connect("signed_up", _on_signed_up)
-	var auth_task: AuthTask = await Supabase.auth.sign_up(
+	var _auth_task: AuthTask = await Supabase.auth.sign_up(
 		email,
 		password
 	).completed

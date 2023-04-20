@@ -2,7 +2,7 @@ extends Control
 
 var scrolling = false
 var loading = false
-var page_size = 20
+var page_size = 50
 var page = 0
 
 func _ready():
@@ -10,7 +10,6 @@ func _ready():
 	Supabase.database.connect("error", _on_database_error)
 	get_online_scores_page(page,page_size)
 	debug_scroll()
-	$MarginContainer/VBox/ScrollContainer/VBoxContainer/Loading/AnimationPlayer.play("loading")
 
 func _process(_delta):
 	if scrolling:

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://t5butq2njbwl"]
+[gd_scene load_steps=3 format=3 uid="uid://t5butq2njbwl"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_qjlv5"]
 [ext_resource type="Script" path="res://scenes/start.gd" id="1_txpj5"]
-[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_ljdno"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -31,9 +30,3 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
 text = "Start"
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_ljdno")
