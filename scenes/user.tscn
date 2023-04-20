@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://btwpkt0hioyve"]
+[gd_scene load_steps=6 format=3 uid="uid://btwpkt0hioyve"]
 
 [ext_resource type="Script" path="res://scenes/user.gd" id="1_l6yum"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_xrnkr"]
 [ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_ppfii"]
 [ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="2_re154"]
+[ext_resource type="PackedScene" uid="uid://tlpovjp7e4f7" path="res://scenes/ui/LoadingIndicator.tscn" id="3_q8o6b"]
 
 [node name="User" type="Control"]
 layout_mode = 3
@@ -46,6 +47,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Loading" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_q8o6b")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.333333, 0.54902, 1)
+theme_override_font_sizes/font_size = 65
+text = "Auth Error Message"
 
 [node name="EmailEdit" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

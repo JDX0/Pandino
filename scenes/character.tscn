@@ -30,7 +30,6 @@ texture = SubResource("CanvasTexture_ohs18")
 [node name="NonPhysicalCollisionDetector" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NonPhysicalCollisionDetector"]
-visible = false
 polygon = PackedVector2Array(-39, 115, -51, 46, -73, -34, -131, -108, -116, -214, -16, -252, 79, -217, 115, -103, 62, -34, 38, -13, 22, 114)
 
 [connection signal="area_entered" from="NonPhysicalCollisionDetector" to="." method="_on_non_physical_collision_detector_area_entered"]

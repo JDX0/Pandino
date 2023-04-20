@@ -9,7 +9,7 @@ base_font = ExtResource("2_7wyif")
 
 [sub_resource type="FontVariation" id="FontVariation_2r5po"]
 base_font = ExtResource("1_d8lxd")
-fallbacks = [SubResource("FontVariation_7ehsk")]
+fallbacks = Array[Font]([SubResource("FontVariation_7ehsk")])
 
 [resource]
 default_font_size = 100
