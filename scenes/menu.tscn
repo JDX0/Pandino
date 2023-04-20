@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=6 format=3 uid="uid://iil4sxgpau4p"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_8qot1"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_ljns5"]
 [ext_resource type="FontFile" uid="uid://dpyi8bsv5wfql" path="res://assets/fonts/Inria/InriaSans-Bold.otf" id="3_ej4lt"]
+[ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_rvs5g"]
 [ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_cv6rm"]
 
 [node name="Menu" type="Control"]
@@ -14,6 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8qot1")
 script = ExtResource("1_ljns5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_rvs5g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

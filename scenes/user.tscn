@@ -1,10 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://btwpkt0hioyve"]
+[gd_scene load_steps=7 format=3 uid="uid://btwpkt0hioyve"]
 
 [ext_resource type="Script" path="res://scenes/user.gd" id="1_l6yum"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_xrnkr"]
-[ext_resource type="Texture2D" uid="uid://xw4ilpdeoram" path="res://assets/iedeix.png" id="2_ppfii"]
 [ext_resource type="Theme" uid="uid://df8f7hoga7trb" path="res://styles/theme.tres" id="2_re154"]
+[ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_f6ap0"]
 [ext_resource type="PackedScene" uid="uid://tlpovjp7e4f7" path="res://scenes/ui/LoadingIndicator.tscn" id="3_q8o6b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ooab"]
+content_margin_left = 35.0
+content_margin_top = 35.0
+content_margin_right = 35.0
+content_margin_bottom = 35.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="User" type="Control"]
 layout_mode = 3
@@ -16,11 +27,21 @@ grow_vertical = 2
 theme = ExtResource("1_xrnkr")
 script = ExtResource("1_l6yum")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1080.0
+offset_bottom = 2340.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_f6ap0")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -24.0
+offset_right = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
@@ -33,7 +54,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 150
-text = "Account"
+text = "Welcome back!"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -47,6 +68,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 65
+text = "Please sign in to your account"
 
 [node name="Loading" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_q8o6b")]
 unique_name_in_owner = true
@@ -64,7 +92,8 @@ text = "Auth Error Message"
 [node name="EmailEdit" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_re154")
-placeholder_text = "Email"
+theme_override_font_sizes/font_size = 0
+placeholder_text = "panda@example.com"
 max_length = 256
 virtual_keyboard_type = 5
 
@@ -72,7 +101,7 @@ virtual_keyboard_type = 5
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme = ExtResource("2_re154")
-placeholder_text = "Password"
+placeholder_text = "strong password"
 max_length = 256
 secret = true
 virtual_keyboard_type = 6
@@ -81,6 +110,7 @@ virtual_keyboard_type = 6
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_constants/separation = 40
 
 [node name="TestingLoginButton" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
@@ -91,9 +121,10 @@ text = "Testing Log In"
 
 [node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ooab")
 text = "Log In"
 
 [node name="SignUpButton" type="Button" parent="MarginContainer/VBoxContainer2"]
@@ -103,13 +134,6 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
 text = "Sign Up
 "
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture = ExtResource("2_ppfii")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/TestingLoginButton" to="." method="_on_testing_login_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LoginButton" to="." method="_on_login_button_pressed"]

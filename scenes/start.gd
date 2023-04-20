@@ -1,7 +1,5 @@
 extends Control
 
 func _ready():
-	pass
+	TransitionScene.transition("res://scenes/user.tscn","FadeOut","Uncover")
 
-func _process(_delta):
-	TransitionScene.transition("res://scenes/user.tscn")
