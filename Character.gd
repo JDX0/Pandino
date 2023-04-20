@@ -8,6 +8,10 @@ var sensitivity = State.get_setting("sensitivity")
 var gyro = Vector3(0,0,0)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var previous_collider
+var sprite_scale : Vector2
+
+func _ready():
+	sprite_scale = $Sprite2D.scale
 
 func _physics_process(delta):
 	var gyrodelta = Input.get_gyroscope()
@@ -23,9 +27,9 @@ func _physics_process(delta):
 	velocity.x = direction * SPEED
 	
 	if direction > 0:
-		$Sprite2D.scale.x = 0.5
+		$Sprite2D.scale.x = sprite_scale.x
 	if direction < 0:
-		$Sprite2D.scale.x = -0.5
+		$Sprite2D.scale.x = -sprite_scale.x
 	
 	var last_collision = get_last_slide_collision()
 	if last_collision != null:

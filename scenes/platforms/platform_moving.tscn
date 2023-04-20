@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2ygwd7qoh6lb"]
 
 [ext_resource type="Script" path="res://scenes/platforms/platform_moving.gd" id="1_wry17"]
-[ext_resource type="Texture2D" uid="uid://b86fqgbcolfwr" path="res://assets/world/platforms/platform.png" id="2_dhs24"]
+[ext_resource type="Texture2D" uid="uid://bjt1abkhg5eq5" path="res://assets/world/platforms/moving.png" id="2_hm8k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr20b"]
 size = Vector2(250, 60)
 
 [node name="PlatformMoving" type="AnimatableBody2D"]
 position = Vector2(500, 500)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_wry17")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -15,8 +16,9 @@ scale = Vector2(12.5, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_dhs24")
+position = Vector2(0, -24)
+scale = Vector2(0.644531, 0.644531)
+texture = ExtResource("2_hm8k1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jr20b")

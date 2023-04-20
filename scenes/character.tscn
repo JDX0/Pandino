@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://117y4nub8dvd"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_mv22p"]
-[ext_resource type="Texture2D" uid="uid://dqyi1fojhk1ix" path="res://assets/character/pandanew.png" id="2_7b7t4"]
+[ext_resource type="Texture2D" uid="uid://xruobcd3ecfv" path="res://assets/character/panda.png" id="2_e1xdq"]
 [ext_resource type="Texture2D" uid="uid://bl2uu2kpc1rt0" path="res://assets/character/pandanew_n.png" id="3_cwxe4"]
 [ext_resource type="Texture2D" uid="uid://glcbwag3kqxh" path="res://assets/character/pandanew_s.png" id="4_taxnt"]
 
@@ -9,7 +9,7 @@
 size = Vector2(37, 2)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ohs18"]
-diffuse_texture = ExtResource("2_7b7t4")
+diffuse_texture = ExtResource("2_e1xdq")
 normal_texture = ExtResource("3_cwxe4")
 specular_texture = ExtResource("4_taxnt")
 specular_shininess = 0.52
@@ -18,18 +18,20 @@ specular_shininess = 0.52
 script = ExtResource("1_mv22p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 120)
+position = Vector2(-3, 86)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_6qgj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -50)
-scale = Vector2(0.5, 0.5)
+position = Vector2(2, -44)
+scale = Vector2(0.360352, 0.360352)
 texture = SubResource("CanvasTexture_ohs18")
 
 [node name="NonPhysicalCollisionDetector" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NonPhysicalCollisionDetector"]
+position = Vector2(2, 0)
+scale = Vector2(0.742556, 0.742556)
 polygon = PackedVector2Array(-39, 115, -51, 46, -73, -34, -131, -108, -116, -214, -16, -252, 79, -217, 115, -103, 62, -34, 38, -13, 22, 114)
 
 [connection signal="area_entered" from="NonPhysicalCollisionDetector" to="." method="_on_non_physical_collision_detector_area_entered"]
