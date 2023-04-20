@@ -36,7 +36,7 @@ func _physics_process(delta):
 		var last_collider = last_collision.get_collider()
 		if last_collider != previous_collider and last_collider != null:
 			previous_collider = last_collider
-			if last_collider.is_in_group("interactable"):
+			if last_collider.is_in_group("interactable") && is_on_floor():
 				var interact_type = last_collider.interact()
 				match interact_type[0]:
 					"spring":

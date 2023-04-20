@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-const INTERACT_TYPE = "platform"
+const INTERACT_TYPE = "platform_disappearing"
 const EXTENSION_HEIGHT = -30
 
 var sprite_rect_size : Vector2
@@ -12,9 +12,14 @@ func _process(_delta):
 	pass
 
 func interact():
+	disappear()
 	return [INTERACT_TYPE]
 
 func get_size():
 	return sprite_rect_size
-func _on_visible_on_screen_notifier_2d_screen_exited():
+
+func disappear():
+	$AnimationPlayer.play("disappear")
+
+func _on_animation_player_animation_finished(anim_name):
 	queue_free()
