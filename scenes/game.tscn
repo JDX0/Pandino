@@ -100,13 +100,6 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="SceneLabel" type="Label" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 150
-text = "Game"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -136,7 +129,7 @@ text = "Pause
 process_mode = 3
 offset_top = 2340.0
 offset_right = 1080.0
-offset_bottom = 2640.0
+offset_bottom = 2660.0
 theme = ExtResource("6_jnxvp")
 
 [node name="PauseAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Pause"]

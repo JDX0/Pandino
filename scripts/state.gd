@@ -10,15 +10,14 @@ var coins = 0
 var user : SupabaseUser
 var settings = {
 	"sensitivity": 1,
-	"master_volume": 100
- } 
-
+	"master_volume": 100,
+	"selected_skin": "panda"
+}
 func _ready():
 	if !save_manager.save_exists():
 		first_run = true
 		save()
 	load_save()
-
 
 func save():
 	save_manager.save(get_as_dict())

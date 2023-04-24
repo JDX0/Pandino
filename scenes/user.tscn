@@ -6,20 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_f6ap0"]
 [ext_resource type="PackedScene" uid="uid://tlpovjp7e4f7" path="res://scenes/ui/LoadingIndicator.tscn" id="3_q8o6b"]
 [ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_w0rbh"]
+[ext_resource type="StyleBox" uid="uid://crjdsd450yxmd" path="res://styles/white_button.stylebox" id="7_7xl3t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mi6t"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ooab"]
-content_margin_left = 35.0
-content_margin_top = 35.0
-content_margin_right = 35.0
-content_margin_bottom = 35.0
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0.607843, 0.607843, 0.607843, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyxjr"]
 content_margin_left = 35.0
@@ -182,7 +171,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_2ooab")
+theme_override_styles/normal = ExtResource("7_7xl3t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gyxjr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gyxjr")
 text = "Log In"

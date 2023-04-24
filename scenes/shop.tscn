@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c86upunvxtahw"]
+[gd_scene load_steps=7 format=3 uid="uid://c86upunvxtahw"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_uf75k"]
 [ext_resource type="Script" path="res://scenes/shop.gd" id="2_lbjh4"]
 [ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_s7t7u"]
+[ext_resource type="Texture2D" uid="uid://djfahqyu8vm3j" path="res://assets/character/Skins/panda.png" id="4_ysutx"]
+[ext_resource type="Texture2D" uid="uid://c7lvv1bwn6ma8" path="res://assets/character/Skins/panda_red.png" id="5_28ef0"]
+[ext_resource type="StyleBox" uid="uid://crjdsd450yxmd" path="res://styles/white_button.stylebox" id="5_76prt"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -57,4 +60,99 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 100
 text = "Menu"
 
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1080, 1300)
+layout_mode = 2
+offset_top = 509.0
+offset_right = 1080.0
+offset_bottom = 1830.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 850)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_ysutx")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Panda"
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("5_76prt")
+theme_override_styles/hover = ExtResource("5_76prt")
+theme_override_styles/pressed = ExtResource("5_76prt")
+text = "Select"
+
+[node name="Panel2" type="PanelContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer/Panel2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 850)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_28ef0")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Red Panda"
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("5_76prt")
+theme_override_styles/hover = ExtResource("5_76prt")
+theme_override_styles/pressed = ExtResource("5_76prt")
+text = "Select"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="scroll_ended" from="ScrollContainer" to="." method="_on_scroll_container_scroll_ended"]
+[connection signal="scroll_started" from="ScrollContainer" to="." method="_on_scroll_container_scroll_started"]
