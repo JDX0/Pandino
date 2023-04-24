@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkviogb032h1s"]
+[gd_scene load_steps=8 format=3 uid="uid://dkviogb032h1s"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_iulo8"]
 [ext_resource type="Script" path="res://scenes/ui/better_h_slider.gd" id="2_3kmau"]
@@ -9,6 +9,90 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="Animation" id="Animation_fjlts"]
+resource_name = "show_label"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-50, -0.25, 0, 0.25, 0, -150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_t6ct7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ub11s"]
+resource_name = "hide_label"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l18hn"]
+_data = {
+"RESET": SubResource("Animation_t6ct7"),
+"hide_label": SubResource("Animation_ub11s"),
+"show_label": SubResource("Animation_fjlts")
+}
 
 [node name="BetterHSlider" type="HSlider"]
 custom_minimum_size = Vector2(750, 0)
@@ -28,7 +112,7 @@ theme = ExtResource("1_iulo8")
 script = ExtResource("2_3kmau")
 
 [node name="Label" type="Label" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 0
 offset_top = -150.0
@@ -49,6 +133,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4q8cr")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l18hn")
+}
+
 [connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
 [connection signal="drag_started" from="." to="." method="_on_drag_started"]
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
