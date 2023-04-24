@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkviogb032h1s"]
+[gd_scene load_steps=4 format=3 uid="uid://dkviogb032h1s"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_iulo8"]
 [ext_resource type="Script" path="res://scenes/ui/better_h_slider.gd" id="2_3kmau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q8cr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="BetterHSlider" type="HSlider"]
 custom_minimum_size = Vector2(750, 0)
@@ -27,6 +34,7 @@ layout_mode = 0
 offset_top = -150.0
 offset_right = 234.0
 offset_bottom = -27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0.26"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4q8cr")
 
 [connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
 [connection signal="drag_started" from="." to="." method="_on_drag_started"]

@@ -5,9 +5,9 @@ var password_edit
 var error_label
 
 func _ready():
-	email_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/EmailEdit")
-	password_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PasswordEdit")
-	error_label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ErrorLabel")
+	email_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/EmailEdit")
+	password_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PasswordEdit")
+	error_label = %ErrorLabel
 	Supabase.auth.connect("signed_in", _on_signed_in)
 	Supabase.auth.connect("error", _on_auth_error)
 	TransitionScene.aplayer.play("UncoverIn")
