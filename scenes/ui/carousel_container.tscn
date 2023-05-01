@@ -1,0 +1,765 @@
+[gd_scene load_steps=9 format=3 uid="uid://3d0kapk0tcq0"]
+
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_0hxmk"]
+[ext_resource type="Script" path="res://scenes/ui/CarouselContainer.gd" id="1_gua8h"]
+[ext_resource type="Texture2D" uid="uid://c7lvv1bwn6ma8" path="res://assets/character/Skins/panda_red.png" id="2_82yh7"]
+[ext_resource type="StyleBox" uid="uid://crjdsd450yxmd" path="res://styles/white_button.stylebox" id="3_uv41m"]
+
+[sub_resource type="Animation" id="Animation_ddq5r"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextItem/NextImage:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-75.0001, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextItem/NextImage:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NextItem/NextNameLabel:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(750, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextItem/NextNameLabel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextItem/NextSelectButton:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(750, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextItem/NextSelectButton:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Item/Image:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Item/Image:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Item/Image:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Item/NameLabel:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NextItem/NextImage:scale:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Item/Image:scale:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Item/Image:scale:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Item/NameLabel:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Item/SelectButton:modulate:r")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Item/SelectButton:modulate:g")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Item/SelectButton:modulate:b")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Item/SelectButton:modulate:a")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Item/SelectButton:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Item/SelectButton:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1250, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_l2lyo"]
+resource_name = "right"
+length = 0.4
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextItem/NextImage:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(675, -0.075, 1.5, 0.075, -1.5, -75, -0.0375, 0, 0.0375, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextItem/NextImage:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NextItem/NextNameLabel:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(750, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextItem/NextNameLabel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextItem/NextSelectButton:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(750, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextItem/NextSelectButton:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Item/Image:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(-75, -0.0625, 0, 0.0625, 0, -825, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Item/Image:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Item/Image:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0.5, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Item/Image:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0.5, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Item/SelectButton:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, -750, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Item/SelectButton:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NextItem/NextImage:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0.5, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("NextItem/NextImage:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0.5, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Item/NameLabel:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, -750, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Item/NameLabel:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+
+[sub_resource type="Animation" id="Animation_1e4l3"]
+resource_name = "left"
+length = 0.4
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextItem/NextImage:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(675, -0.075, 1.5, 0.075, -1.5, -75, -0.0375, 0, 0.0375, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextItem/NextImage:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NextItem/NextNameLabel:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(750, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextItem/NextNameLabel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextItem/NextSelectButton:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(750, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextItem/NextSelectButton:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Item/Image:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(-75, -0.0625, 0, 0.0625, 0, -825, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Item/Image:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Item/Image:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0.5, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Item/Image:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0.5, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Item/SelectButton:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, -750, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Item/SelectButton:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.15, 0.4)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NextItem/NextImage:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0.5, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("NextItem/NextImage:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0.5, -0.0625, 0, 0.0625, 0, 1, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Item/NameLabel:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0625, 0, 0.0625, 0, -750, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Item/NameLabel:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0625, 0, 0.0625, 0, 0, -0.0625, 0, 0.0625, 0),
+"times": PackedFloat32Array(0.075, 0.325)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dp1te"]
+_data = {
+"RESET": SubResource("Animation_ddq5r"),
+"left": SubResource("Animation_1e4l3"),
+"right": SubResource("Animation_l2lyo")
+}
+
+[node name="CarouselContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 300.0
+offset_bottom = -290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0hxmk")
+script = ExtResource("1_gua8h")
+
+[node name="LeftButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 59.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "<"
+
+[node name="RightButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = ">"
+
+[node name="Item" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 190.0
+offset_top = 268.5
+offset_right = 890.0
+offset_bottom = 1268.5
+mouse_filter = 2
+
+[node name="Image" type="TextureRect" parent="Item"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(850, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -500.0
+offset_right = 425.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(425, 500)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_82yh7")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="Item"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 1100.0
+offset_right = 455.0
+offset_bottom = 1223.0
+size_flags_horizontal = 0
+text = "Red Panda"
+
+[node name="SelectButton" type="Button" parent="Item"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 1250.0
+offset_right = 700.0
+offset_bottom = 1440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("3_uv41m")
+theme_override_styles/hover = ExtResource("3_uv41m")
+theme_override_styles/pressed = ExtResource("3_uv41m")
+text = "Select"
+alignment = 0
+
+[node name="NextItem" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 190.0
+offset_top = 268.5
+offset_right = 890.0
+offset_bottom = 1268.5
+mouse_filter = 2
+
+[node name="NextImage" type="TextureRect" parent="NextItem"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(850, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -500.0
+offset_right = 425.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(425, 500)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_82yh7")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="NextNameLabel" type="Label" parent="NextItem"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 750.0
+offset_top = 1100.0
+offset_right = 1205.0
+offset_bottom = 1223.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 0
+text = "Red Panda"
+
+[node name="NextSelectButton" type="Button" parent="NextItem"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 750.0
+offset_top = 1250.0
+offset_right = 1450.0
+offset_bottom = 1440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("3_uv41m")
+theme_override_styles/hover = ExtResource("3_uv41m")
+theme_override_styles/pressed = ExtResource("3_uv41m")
+text = "Select"
+alignment = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dp1te")
+}
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Item/SelectButton" to="." method="select"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=14 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="6_jnxvp"]
+[ext_resource type="PackedScene" uid="uid://camy3qt3aa5mn" path="res://shaders/grain_rect.tscn" id="9_8gu6t"]
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -164,6 +165,15 @@ theme_override_font_sizes/font_size = 100
 text = "Resume
 "
 icon_alignment = 2
+
+[node name="GrainRect" parent="CanvasLayer" instance=ExtResource("9_8gu6t")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="."]
 

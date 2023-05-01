@@ -20,3 +20,6 @@ func _on_sensitivity_slider_drag_ended(value_changed):
 func _on_master_slider_drag_ended(value_changed):
 	if value_changed:
 		State.set_setting("master_volume",$MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider.value)
+
+func _on_delete_save_button_pressed():
+	State.reset_save()

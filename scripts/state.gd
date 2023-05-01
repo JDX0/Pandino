@@ -25,6 +25,13 @@ func save():
 func load_save():
 	set_as_dict(save_manager.load_save())
 
+func reset_save():
+	settings = {
+	"sensitivity": 1,
+	"master_volume": 100,
+	"selected_skin": "panda"
+	}
+	save()
 	
 func set_as_dict(dict : Dictionary):
 	state = dict["state"]

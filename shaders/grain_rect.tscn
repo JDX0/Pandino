@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://camy3qt3aa5mn"]
+
+[ext_resource type="Shader" path="res://shaders/grain.gdshader" id="1_mit86"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppywj"]
+shader = ExtResource("1_mit86")
+shader_parameter/amount = 0.1
+shader_parameter/strength = 10.0
+
+[node name="GrainRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_ppywj")
+offset_right = 40.0
+offset_bottom = 40.0
