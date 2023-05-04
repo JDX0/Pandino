@@ -54,3 +54,6 @@ func set_setting(field,value):
 
 func get_setting(field):
 	return settings[field]
+	
+
+	
