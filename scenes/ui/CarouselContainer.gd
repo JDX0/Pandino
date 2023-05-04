@@ -2,6 +2,7 @@ extends Control
 
 var current = 0
 var next = 0
+var moving = false
 enum Direction {LEFT = -1,RIGHT = 1}
 
 var carousel_data = [
@@ -13,6 +14,7 @@ func _ready():
 	pass
 
 func move(direction):
+	moving = true
 	next = current + direction
 	if next > carousel_data.size()-1:
 		next = 0
@@ -33,15 +35,18 @@ func select():
 	State.settings["selected_skin"] = carousel_data[current].id
 
 func _on_left_button_pressed():
-	move(Direction.LEFT)
-	$AnimationPlayer.play("left")
+	if not moving:
+		move(Direction.LEFT)
+		$AnimationPlayer.play("left")
 
 func _on_right_button_pressed():
-	move(Direction.RIGHT)
-	$AnimationPlayer.play("right")
+	if not moving:
+		move(Direction.RIGHT)
+		$AnimationPlayer.play("right")
 
 func _on_animation_player_animation_finished(anim_name):
 	%NameLabel.text = %NextNameLabel.text
 	%Image.set_texture(%NextImage.get_texture())
 	%SelectButton.text = %NextSelectButton.text
 	$AnimationPlayer.play("RESET")
+	moving = false

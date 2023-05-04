@@ -228,8 +228,8 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_l2lyo"]
-resource_name = "right"
+[sub_resource type="Animation" id="Animation_1e4l3"]
+resource_name = "left"
 length = 0.4
 step = 0.025
 tracks/0/type = "bezier"
@@ -409,8 +409,8 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0.075, 0.325)
 }
 
-[sub_resource type="Animation" id="Animation_1e4l3"]
-resource_name = "left"
+[sub_resource type="Animation" id="Animation_l2lyo"]
+resource_name = "right"
 length = 0.4
 step = 0.025
 tracks/0/type = "bezier"
