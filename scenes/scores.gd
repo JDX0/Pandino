@@ -31,9 +31,15 @@ func _on_selected(result : Array):
 func add_to_list(row : Dictionary):
 	var time_passed = get_time_passed_from_datetime_string(row["created_at"])
 	
+	var index = %ListUser.add_item(str(row["profiles"]["username"]))
+	%ListUser.set_item_metadata(index,row["user_id"])
 	%ListValue.add_item(str(row["value"]))
 	%ListTime.add_item(str(time_passed))
-	%ListUser.add_item(str(row["profiles"]["username"]))
+	if row["user_id"] == State.user.id:
+		%ListUser.set_item_custom_bg_color(index,Color.CORNFLOWER_BLUE)
+		%ListValue.set_item_custom_bg_color(index,Color.CORNFLOWER_BLUE)
+		%ListTime.set_item_custom_bg_color(index,Color.CORNFLOWER_BLUE)
+	
 
 func get_time_passed_from_datetime_string(datetime_string : String):
 	var unix_created = Time.get_unix_time_from_datetime_string(datetime_string)
@@ -74,3 +80,11 @@ func _on_scroll_container_scroll_started():
 
 func _on_scroll_container_scroll_ended():
 	scrolling = false
+
+
+func _on_list_user_item_clicked(index, at_position, mouse_button_index):
+	print("Showing profile of user "+%ListUser.get_item_metadata(index))
+	TransitionScene.next_scene_args = %ListUser.get_item_metadata(index)
+	TransitionScene.transition("res://scenes/account_info.tscn")
+	
+

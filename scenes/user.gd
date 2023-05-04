@@ -51,6 +51,7 @@ func _on_signed_up(user : SupabaseUser):
 	State.user = user
 	print(State.user)
 	Database.insert_account_info("Unnamed Panda","Desc")
+	TransitionScene.next_scene_args = State.user.id
 	TransitionScene.transition("res://scenes/account_info.tscn")
 	
 func _on_auth_error(error : SupabaseAuthError):

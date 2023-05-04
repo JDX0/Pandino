@@ -87,7 +87,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(480, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-mouse_filter = 2
 theme_override_font_sizes/font_size = 50
 auto_height = true
 item_count = 1
@@ -118,4 +117,5 @@ texture = ExtResource("2_ae20b")
 
 [connection signal="scroll_ended" from="MarginContainer/VBox/ScrollContainer" to="." method="_on_scroll_container_scroll_ended"]
 [connection signal="scroll_started" from="MarginContainer/VBox/ScrollContainer" to="." method="_on_scroll_container_scroll_started"]
+[connection signal="item_clicked" from="MarginContainer/VBox/ScrollContainer/VBoxContainer/HBoxContainer/ListUser" to="." method="_on_list_user_item_clicked"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

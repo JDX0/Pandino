@@ -11,6 +11,7 @@ func _on_back_button_pressed():
 	TransitionScene.transition("res://scenes/menu.tscn")
 
 func _on_account_info_button_pressed():
+	TransitionScene.next_scene_args = State.user.id
 	TransitionScene.transition("res://scenes/account_info.tscn")
 
 func _on_sensitivity_slider_drag_ended(value_changed):

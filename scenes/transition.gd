@@ -1,6 +1,7 @@
 extends Node2D
 
 var next_scene
+var next_scene_args
 var current_scene
 var in_animation
 var out_animations = ["FadeOut","InstantOut"]
@@ -28,4 +29,7 @@ func switch_to_scene(scene):
 	var s = ResourceLoader.load(scene)
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
+	if current_scene.has_method("init") and next_scene_args != null:
+		current_scene.init(next_scene_args)
+		next_scene_args = null
 	aplayer.play(in_animation)
