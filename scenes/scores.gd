@@ -2,40 +2,38 @@ extends Control
 
 var scrolling = false
 var loading = false
-var page_size = 50
+var page_size = 100
 var page = 0
 
 func _ready():
 	Supabase.database.connect("selected", _on_selected)
 	Supabase.database.connect("error", _on_database_error)
 	get_online_scores_page(page,page_size)
-	debug_scroll()
 
 func _process(_delta):
-	if scrolling:
-		debug_scroll()
-	if %List.get_global_rect().position.y+%List.get_global_rect().size.y<2000 and not loading:
+	if %ListValue.get_global_rect().position.y+%ListValue.get_global_rect().size.y<2000 and not loading:
 		page += 1
 		get_online_scores_page(page, page_size)
 		pass
 		
 func get_online_scores_page(page_n:int,pg_size:int):
-	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,profiles(username)"])).order('value',1).range(page_n*pg_size,page_n*pg_size+pg_size-1)
+	var query = SupabaseQuery.new().from("scores").select(PackedStringArray(["value,created_at,user_id,profiles(username)"])).order('value',1).range(page_n*pg_size,page_n*pg_size+pg_size-1)
 	Supabase.database.query(query)																				#,[count:'exact']
 	page += 1
 	show_loading(true)
 
 func _on_selected(result : Array):
 	for row in result:
+		print(row)
 		add_to_list(row)
 	show_loading(false)
 	
 func add_to_list(row : Dictionary):
 	var time_passed = get_time_passed_from_datetime_string(row["created_at"])
 	
-	%List.add_item(str(row["value"]))
-	%List.add_item(str(time_passed))
-	%List.add_item(str(row["profiles"]["username"]))
+	%ListValue.add_item(str(row["value"]))
+	%ListTime.add_item(str(time_passed))
+	%ListUser.add_item(str(row["profiles"]["username"]))
 
 func get_time_passed_from_datetime_string(datetime_string : String):
 	var unix_created = Time.get_unix_time_from_datetime_string(datetime_string)
@@ -64,12 +62,6 @@ func show_loading(showl:bool):
 
 func _on_database_error(error : SupabaseDatabaseError):
 	print(error)
-
-
-func debug_scroll():
-	#$MarginContainer/VBoxContainer/DebugLabel.text = str($MarginContainer/VBox/ScrollContainer.scroll_vertical)
-	$MarginContainer/VBoxContainer/DebugLabel2.text = str(%List.get_global_rect().position.y+%List.get_global_rect().size.y)
-	$MarginContainer/VBoxContainer/DebugLabel.text = str(%List.get_end().y<1800)
 
 
 func _on_back_button_pressed():
