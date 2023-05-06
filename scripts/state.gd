@@ -8,16 +8,24 @@ var state = "menu"
 var auth = "no_user"
 var coins = 0
 var user : SupabaseUser
-var settings = {
-	"sensitivity": 1,
-	"master_volume": 100,
+var default_settings = {
+	"sensitivity": 1.0,
+	"master_volume": 1.0,
+	"ui_volume": 1.0,
+	"film_grain": 1.0,
 	"selected_skin": "panda"
 }
+var settings = default_settings
 func _ready():
 	if !save_manager.save_exists():
 		first_run = true
 		save()
 	load_save()
+	
+func update():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(settings["master_volume"]))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("UI"), linear_to_db(settings["ui_volume"]))
+
 
 func save():
 	save_manager.save(get_as_dict())
@@ -26,11 +34,7 @@ func load_save():
 	set_as_dict(save_manager.load_save())
 
 func reset_save():
-	settings = {
-	"sensitivity": 1,
-	"master_volume": 100,
-	"selected_skin": "panda"
-	}
+	settings = default_settings
 	save()
 	
 func set_as_dict(dict : Dictionary):
@@ -39,6 +43,7 @@ func set_as_dict(dict : Dictionary):
 	coins = dict["coins"]
 	#user = dict["user"]
 	settings = dict["settings"]
+	update()
 
 func get_as_dict():
 	return {
@@ -51,6 +56,7 @@ func get_as_dict():
 
 func set_setting(field,value):
 	settings[field] = value
+	update()
 
 func get_setting(field):
 	return settings[field]

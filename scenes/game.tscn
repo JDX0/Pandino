@@ -71,6 +71,7 @@ script = ExtResource("1_jyict")
 script = ExtResource("2_kkpfb")
 
 [node name="Background" type="Sprite2D" parent="World"]
+scale = Vector2(2, 2)
 texture = ExtResource("3_plnhl")
 script = ExtResource("3_rth78")
 
@@ -88,6 +89,16 @@ position_smoothing_enabled = true
 script = ExtResource("5_3da65")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GrainRect" parent="CanvasLayer" instance=ExtResource("9_8gu6t")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -165,15 +176,6 @@ theme_override_font_sizes/font_size = 100
 text = "Resume
 "
 icon_alignment = 2
-
-[node name="GrainRect" parent="CanvasLayer" instance=ExtResource("9_8gu6t")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="."]
 

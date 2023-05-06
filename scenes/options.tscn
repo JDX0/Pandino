@@ -34,9 +34,11 @@ offset_bottom = 2340.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("3_oddwg")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -46,24 +48,26 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="SceneLabel" type="Label" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(880, 2000)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 150
-text = "Options"
-
-[node name="OptionsContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
 size_flags_vertical = 4
 
-[node name="AccountPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
+[node name="OptionsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(880, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AccountPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/AccountPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/AccountPanel"]
 layout_mode = 2
 
-[node name="AccountInfoButton" type="Button" parent="MarginContainer/OptionsContainer/AccountPanel/MarginContainer"]
+[node name="AccountInfoButton" type="Button" parent="MarginContainer/ScrollContainer/OptionsContainer/AccountPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -71,46 +75,83 @@ theme_override_font_sizes/font_size = 100
 text = "Account Info
 "
 
-[node name="SoundPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
+[node name="SoundPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/SoundPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel"]
 layout_mode = 2
 
-[node name="SoundOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer"]
+[node name="SoundOptions" type="VBoxContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions"]
+[node name="Master" type="Label" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Master Volume
 "
 
-[node name="MasterSlider" parent="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("3_wcnch")]
+[node name="MasterSlider" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 
-[node name="ControlsPanel" type="PanelContainer" parent="MarginContainer/OptionsContainer"]
+[node name="UI" type="Label" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "UI Volume"
+
+[node name="UISlider" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OptionsContainer/ControlsPanel"]
+[node name="ControlsPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="GameOptions" type="VBoxContainer" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel"]
 layout_mode = 2
 
-[node name="Sensitivity" type="Label" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions"]
+[node name="GameOptions" type="VBoxContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Sensitivity" type="Label" parent="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Sensitivity
 "
 
-[node name="SensitivitySlider" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions" instance=ExtResource("3_wcnch")]
+[node name="SensitivitySlider" parent="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 max_value = 2.0
 step = 0.01
 value = 1.0
 
-[node name="DeleteSaveButton" type="Button" parent="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions"]
+[node name="GraphicsPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel"]
+layout_mode = 2
+
+[node name="GraphicsOptions" type="VBoxContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Filmgrain" type="Label" parent="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Film Grain"
+
+[node name="FilmgrainSlider" parent="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions" instance=ExtResource("3_wcnch")]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MiscPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/MiscPanel"]
+layout_mode = 2
+
+[node name="GameOptions" type="VBoxContainer" parent="MarginContainer/ScrollContainer/OptionsContainer/MiscPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="DeleteSaveButton" type="Button" parent="MarginContainer/ScrollContainer/OptionsContainer/MiscPanel/MarginContainer/GameOptions"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
@@ -130,8 +171,10 @@ theme_override_font_sizes/font_size = 100
 text = "Back
 "
 
-[connection signal="pressed" from="MarginContainer/OptionsContainer/AccountPanel/MarginContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
-[connection signal="drag_ended" from="MarginContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider" to="." method="_on_master_slider_drag_ended"]
-[connection signal="drag_ended" from="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
-[connection signal="pressed" from="MarginContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/OptionsContainer/AccountPanel/MarginContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
+[connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider" to="." method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/UISlider" to="." method="_on_ui_slider_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions/FilmgrainSlider" to="." method="_on_filmgrain_slider_drag_ended"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/OptionsContainer/MiscPanel/MarginContainer/GameOptions/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

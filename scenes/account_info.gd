@@ -2,11 +2,13 @@ extends Control
 
 var description_edit
 var username_edit
+var country_option
 var my = false
 
 func _ready():
 	description_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionEdit")
 	username_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UsernameEdit")
+	country_option = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CountryOptionButton")
 	
 func init(id):
 	Supabase.database.connect("selected", _on_selected)
@@ -37,10 +39,10 @@ func _on_selected(result : Array):
 			description_edit.text = result[0]["description"]
 	else:
 		for row in result:
-			print(row)
 			%CountryOptionButton.add_item(row["name"],row["id"])
 
 func _on_back_button_pressed():
+	Sound.ui_back()
 	if my:
-		Database.update_account_info(username_edit.text,description_edit.text)
+		Database.update_account_info(username_edit.text,description_edit.text,country_option.get_selected_id())
 	TransitionScene.transition("res://scenes/menu.tscn")

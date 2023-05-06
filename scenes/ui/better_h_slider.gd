@@ -16,11 +16,13 @@ func _process(_delta):
 
 
 func _on_drag_started():
+	Sound.ui_warn()
 	label.visible = true
 	$AnimationPlayer.play("show_label")
 
 
 func _on_drag_ended(_val_changed):
+	Sound.ui_forward()
 	$AnimationPlayer.play("hide_label")
 
 

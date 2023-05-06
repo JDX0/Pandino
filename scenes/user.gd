@@ -27,12 +27,15 @@ func sign_up(email,password):
 	
 
 func _on_login_button_pressed():
+	Sound.ui_forward()
 	sign_in(email_edit.text,password_edit.text)
 	
 func _on_sign_up_button_pressed():
+	Sound.ui_forward()
 	sign_up(email_edit.text,password_edit.text)
 	
 func _on_testing_login_button_pressed():
+	Sound.ui_forward()
 	sign_in("asecvqy669@tmail9.com","ciscocisco")
 	
 func sign_in(email,password):
@@ -50,11 +53,12 @@ func _on_signed_up(user : SupabaseUser):
 	%Loading.visible = false
 	State.user = user
 	print(State.user)
-	Database.insert_account_info("Unnamed Panda","Desc")
+	Database.update_account_info("Unnamed Panda","",0)
 	TransitionScene.next_scene_args = State.user.id
 	TransitionScene.transition("res://scenes/account_info.tscn")
 	
 func _on_auth_error(error : SupabaseAuthError):
+	Sound.ui_warn()
 	%Loading.visible = false
 	error_label.visible = true
 	error_label.text = error.hint

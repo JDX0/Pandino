@@ -24,6 +24,7 @@ TransitionScene="*res://scenes/transition.tscn"
 State="*res://scripts/state.gd"
 Database="*res://scripts/database.gd"
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
+Sound="*res://scenes/sound.tscn"
 
 [display]
 
@@ -31,6 +32,7 @@ window/size/viewport_width=1080
 window/size/viewport_height=2340
 window/size/borderless=true
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/handheld/orientation=5
 
 [editor_plugins]

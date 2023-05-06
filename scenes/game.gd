@@ -4,6 +4,11 @@ var score = 0
 var max_player_height = 0
 
 func _ready():
+	if State.settings["film_grain"] >= 0:
+		$CanvasLayer/GrainRect.visible = true
+		$CanvasLayer/GrainRect.modulate.a = round(State.settings["film_grain"]*255)
+	else:
+		$CanvasLayer/GrainRect.visible = false
 	State.state = "playing"
 
 func _process(_delta):
@@ -36,11 +41,13 @@ func save(field,value):
 	file.store_string(str(field) + ":" + str(value))
 	
 func pause():
+	Sound.ui_back()
 	get_tree().paused = true
 	get_node("CanvasLayer/Pause").visible = true
 	get_node("CanvasLayer/Pause/PauseAnimationPlayer").play("pause")
 	
 func resume():
+	Sound.ui_forward()
 	get_tree().paused = false
 	get_node("CanvasLayer/Pause/PauseAnimationPlayer").play("resume")
 
@@ -59,5 +66,6 @@ func _on_resume_button_pressed():
 	resume()
 
 func _on_menu_button_pressed():
+	Sound.ui_back()
 	TransitionScene.transition("res://scenes/menu.tscn")
 	resume()

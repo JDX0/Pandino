@@ -14,6 +14,7 @@ func _ready():
 	pass
 
 func move(direction):
+	Sound.ui_forward()
 	moving = true
 	next = current + direction
 	if next > carousel_data.size()-1:
@@ -29,9 +30,13 @@ func move(direction):
 	current = next
 	
 func buy():
-	pass
+	if "has money":
+		Sound.ui_forward()
+	else:
+		Sound.ui_warn()
 	
 func select():
+	Sound.ui_forward()
 	State.settings["selected_skin"] = carousel_data[current].id
 
 func _on_left_button_pressed():

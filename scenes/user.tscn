@@ -44,6 +44,7 @@ offset_bottom = 2340.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("3_f6ap0")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

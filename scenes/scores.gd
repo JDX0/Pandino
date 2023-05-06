@@ -71,6 +71,7 @@ func _on_database_error(error : SupabaseDatabaseError):
 
 
 func _on_back_button_pressed():
+	Sound.ui_back()
 	TransitionScene.transition("res://scenes/menu.tscn")
 
 
@@ -83,6 +84,7 @@ func _on_scroll_container_scroll_ended():
 
 
 func _on_list_user_item_clicked(index, at_position, mouse_button_index):
+	Sound.ui_forward()
 	print("Showing profile of user "+%ListUser.get_item_metadata(index))
 	TransitionScene.next_scene_args = %ListUser.get_item_metadata(index)
 	TransitionScene.transition("res://scenes/account_info.tscn")

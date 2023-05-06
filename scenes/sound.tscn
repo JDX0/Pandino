@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg411k1ai73tw"]
+
+[ext_resource type="Script" path="res://Sound.gd" id="1_hkslh"]
+[ext_resource type="AudioStream" uid="uid://yf1j2m17vmjc" path="res://sounds/back.wav" id="2_anq1m"]
+[ext_resource type="AudioStream" uid="uid://dea43jj7hk6xx" path="res://sounds/forward.wav" id="3_cviog"]
+[ext_resource type="AudioStream" uid="uid://d1tsn31cwfddg" path="res://sounds/warn.wav" id="4_2uk75"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_hkslh")
+
+[node name="UIBack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_anq1m")
+max_polyphony = 8
+bus = &"UI"
+
+[node name="UIForward" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cviog")
+max_polyphony = 8
+bus = &"UI"
+
+[node name="UIWarn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2uk75")
+max_polyphony = 8
+bus = &"UI"

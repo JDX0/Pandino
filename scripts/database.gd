@@ -28,13 +28,8 @@ func _on_signed_in(user : SupabaseUser):
 	State.user = user
 	print(State.user)
 	
-func insert_account_info(username,description):
-	var query = SupabaseQuery.new().from("profiles").insert([{"id":State.user.id,"username":username,"description":description}])
-	Supabase.database.connect("error", _on_database_error)
-	Supabase.database.query(query)
-	
-func update_account_info(username,description):
-	var query = SupabaseQuery.new().from("profiles").update({"username":username,"description":description}).eq("id",State.user.id)
+func update_account_info(username,description,country):
+	var query = SupabaseQuery.new().from("profiles").update({"username":username,"description":description,"country_id":country}).eq("id",State.user.id)
 	Supabase.database.connect("error", _on_database_error)
 	Supabase.database.query(query)
 
