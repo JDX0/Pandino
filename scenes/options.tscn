@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://be52quni31v7n"]
+[gd_scene load_steps=7 format=3 uid="uid://dwchs880qj6q8"]
 
 [ext_resource type="Script" path="res://scenes/options.gd" id="1_5gg7i"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_w5g0y"]
 [ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_oddwg"]
 [ext_resource type="PackedScene" uid="uid://dkviogb032h1s" path="res://scenes/ui/better_h_slider.tscn" id="3_wcnch"]
+[ext_resource type="PackedScene" uid="uid://canv2ewpvwvbj" path="res://scenes/ui/better_check_button.tscn" id="5_yovuw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phgel"]
 content_margin_left = 35.0
@@ -101,6 +102,10 @@ text = "UI Volume"
 [node name="UISlider" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("3_wcnch")]
 layout_mode = 2
 
+[node name="VibrateBetterCheckButton" parent="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions" instance=ExtResource("5_yovuw")]
+layout_mode = 2
+text = "UI Vibrate"
+
 [node name="ControlsPanel" type="PanelContainer" parent="MarginContainer/ScrollContainer/OptionsContainer"]
 layout_mode = 2
 
@@ -174,6 +179,7 @@ text = "Back
 [connection signal="pressed" from="MarginContainer/ScrollContainer/OptionsContainer/AccountPanel/MarginContainer/AccountInfoButton" to="." method="_on_account_info_button_pressed"]
 [connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider" to="." method="_on_master_slider_drag_ended"]
 [connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/UISlider" to="." method="_on_ui_slider_drag_ended"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/VibrateBetterCheckButton" to="." method="_on_vibrate_better_check_button_toggled"]
 [connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
 [connection signal="drag_ended" from="MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions/FilmgrainSlider" to="." method="_on_filmgrain_slider_drag_ended"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/OptionsContainer/MiscPanel/MarginContainer/GameOptions/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]

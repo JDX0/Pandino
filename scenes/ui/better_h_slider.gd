@@ -27,6 +27,7 @@ func _on_drag_ended(_val_changed):
 
 
 func _on_value_changed(val):
+	Input.vibrate_handheld(5)
 	label.text = str(val)
 	label.position.x = (get_rect().size.x-grabber_width)*get_as_ratio()-0.5*label.get_rect().size.x+0.5*grabber_width
 

@@ -10,6 +10,7 @@ var coins = 0
 var user : SupabaseUser
 var default_settings = {
 	"sensitivity": 1.0,
+	"vibrate": true,
 	"master_volume": 1.0,
 	"ui_volume": 1.0,
 	"film_grain": 1.0,

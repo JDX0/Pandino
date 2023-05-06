@@ -5,6 +5,7 @@ func _ready():
 	$MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider.value = State.get_setting("master_volume")*100
 	$MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/UISlider.value = State.get_setting("ui_volume")*100
 	$MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions/FilmgrainSlider.value = State.get_setting("film_grain")
+	$MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/VibrateBetterCheckButton.init(State.get_setting("vibrate"))
 
 func _process(_delta):
 	pass
@@ -36,3 +37,6 @@ func _on_delete_save_button_pressed():
 func _on_filmgrain_slider_drag_ended(value_changed):
 	if value_changed:
 		State.set_setting("film_grain",$MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions/FilmgrainSlider.value)
+
+func _on_vibrate_better_check_button_toggled(button_pressed):
+	State.set_setting("vibrate",button_pressed)
