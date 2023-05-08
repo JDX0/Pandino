@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://glcbwag3kqxh" path="res://assets/character/pandanew_s.png" id="4_taxnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qgj2"]
-size = Vector2(37, 2)
+size = Vector2(37, 82)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ohs18"]
 diffuse_texture = ExtResource("2_e1xdq")
@@ -18,7 +18,7 @@ specular_shininess = 0.52
 script = ExtResource("1_mv22p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 86)
+position = Vector2(-3, 2)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_6qgj2")
 

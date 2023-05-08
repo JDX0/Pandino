@@ -4,6 +4,7 @@ Martins Upitis (martinsh) devlog-martinsh.blogspot.com
 2013
 
 imported to Godot by spl!te 2017
+updated to Godot 4.0 by JDX0 2023
 
 --------------------------
 This work is licensed under a Creative Commons Attribution 3.0 Unported License.
@@ -21,6 +22,7 @@ shader_type canvas_item;
 
 uniform float amount;
 uniform float strength = 16.0;
+uniform float resolution = 0.1;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 

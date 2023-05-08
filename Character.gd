@@ -21,8 +21,20 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if is_on_floor():
+	if is_on_floor() and velocity.y>=0:
 		velocity.y = JUMP_VELOCITY
+		var last_collision = get_last_slide_collision()
+		if last_collision != null:
+			var last_collider = last_collision.get_collider()
+			if last_collider != previous_collider and last_collider != null:
+				previous_collider = last_collider
+				if last_collider.is_in_group("interactable"):
+					var interact_type = last_collider.interact()
+					match interact_type[0]:
+						"spring":
+							velocity.y = SPRING_VELOCITY
+		else:
+			previous_collider = null
 		
 	var direction = gyro.y/8*sensitivity + Input.get_axis("ui_left", "ui_right")*sensitivity # Gyroscope + Keyboard
 	velocity.x = direction * SPEED
@@ -31,19 +43,6 @@ func _physics_process(delta):
 		$Sprite2D.scale.x = sprite_scale.x
 	if direction < 0:
 		$Sprite2D.scale.x = -sprite_scale.x
-	
-	var last_collision = get_last_slide_collision()
-	if last_collision != null:
-		var last_collider = last_collision.get_collider()
-		if last_collider != previous_collider and last_collider != null:
-			previous_collider = last_collider
-			if last_collider.is_in_group("interactable") && is_on_floor():
-				var interact_type = last_collider.interact()
-				match interact_type[0]:
-					"spring":
-						velocity.y = SPRING_VELOCITY
-	else:
-		previous_collider = null
 		
 	move_and_slide()
 		

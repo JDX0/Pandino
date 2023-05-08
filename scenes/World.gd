@@ -9,7 +9,7 @@ var difficulty = 1
 
 var platforms = {"static":preload('res://scenes/platforms/platform.tscn'),"moving":preload('res://scenes/platforms/platform_moving.tscn'),"disappearing":preload('res://scenes/platforms/platform_disappearing.tscn')} # Dictionary of all platforms
 var extensions = {"spring":preload('res://scenes/platforms/extensions/spring.tscn')} # Dictionary of all platform extensions
-var detached_extensions = {"coin":preload('res://scenes/platforms/extensions/detached/coin.tscn')} # Dictinary of all platform extensions
+var detached_extensions = {"coin":preload('res://scenes/platforms/coin.tscn')} # Dictinary of all platform extensions
 var platform_height_delta = -450
 ## The region in which moving platforms bounce around
 ## Relative to platform height
@@ -29,7 +29,7 @@ func _process(_delta):
 func generate():
 	var player_height = get_node("Character").position.y
 	
-	if player_height < last_platform_height + 100:
+	if player_height < last_platform_height + 1000:
 		var height = last_platform_height+platform_height_delta
 		var platform_type = get_random_key_from_dict(platforms)
 		var platform = platforms[platform_type].instantiate()
@@ -53,11 +53,10 @@ func generate():
 			
 		# Generate coin
 		if randf() < coin_chance:
-			var gen_extension = get_random_from_dict(detached_extensions).instantiate()
-			var platform_size_x = platform.get_child(2).shape.get_rect().size.x
-			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x*2,platform_height_delta*randf()))
-			gen_extension.add_to_group("interactable")
-			platform.add_child(gen_extension)
+			var gen_coin = get_random_from_dict(detached_extensions).instantiate()
+			gen_coin.set_position(Vector2(randf()*1080-540,height - randf()*800))
+			gen_coin.add_to_group("interactable")
+			add_child(gen_coin)
 		
 		add_child(platform)
 		last_platform_height = height

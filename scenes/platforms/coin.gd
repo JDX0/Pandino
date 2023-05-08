@@ -9,9 +9,8 @@ func _process(_delta):
 	pass
 	
 func interact():
-	var parent_response = get_parent().interact()
 	$AnimationPlayer.play("Take")
-	return [INTERACT_TYPE,parent_response[0]]
+	return [INTERACT_TYPE]
 	
 	
 func _on_animation_player_animation_finished(_anim_name):
