@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=15 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 2340)]
+"values": [Vector2(0, 2390)]
 }
 
 [sub_resource type="Animation" id="Animation_7mg2e"]
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(3, 3),
 "update": 0,
-"values": [Vector2(0, 2340), Vector2(0, 2040)]
+"values": [Vector2(0, 2390), Vector2(0, 2040)]
 }
 
 [sub_resource type="Animation" id="Animation_0ovcu"]
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(3, 3),
 "update": 0,
-"values": [Vector2(0, 2040), Vector2(0, 2340)]
+"values": [Vector2(0, 2040), Vector2(0, 2390)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eaxjl"]
@@ -63,6 +63,14 @@ _data = {
 "pause": SubResource("Animation_7mg2e"),
 "resume": SubResource("Animation_0ovcu")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1rsu"]
+bg_color = Color(0, 0, 0, 0.894118)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+shadow_color = Color(0, 0, 0, 0.513726)
+shadow_size = 50
 
 [node name="Game" type="Node"]
 script = ExtResource("1_jyict")
@@ -139,10 +147,20 @@ text = "Pause
 
 [node name="Pause" type="MarginContainer" parent="CanvasLayer"]
 process_mode = 3
-offset_top = 2340.0
-offset_right = 1080.0
-offset_bottom = 2660.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2390.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme = ExtResource("6_jnxvp")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="PauseAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Pause"]
 libraries = {
@@ -150,7 +168,10 @@ libraries = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Pause"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1rsu")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Pause/PanelContainer"]
 layout_mode = 2
@@ -159,19 +180,19 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
-[node name="MenuButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_horizontal = 8
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Menu
 "
 icon_alignment = 2
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2"]
+[node name="ResumeButton" type="Button" parent="CanvasLayer/Pause/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
 text = "Resume
 "
@@ -181,5 +202,5 @@ icon_alignment = 2
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="animation_finished" from="CanvasLayer/Pause/PauseAnimationPlayer" to="." method="_on_pause_animation_player_animation_finished"]
-[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PanelContainer/MarginContainer2/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
