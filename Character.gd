@@ -56,4 +56,4 @@ func _on_non_physical_collision_detector_area_entered(area):
 		var interact_type = area.interact()
 		match interact_type[0]:
 			"coin":
-				State.coins += 1
+				State.coins += area.value

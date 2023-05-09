@@ -56,6 +56,7 @@ func generate():
 			var gen_coin = get_random_from_dict(detached_extensions).instantiate()
 			gen_coin.set_position(Vector2(randf()*1080-540,height - randf()*800))
 			gen_coin.add_to_group("interactable")
+			gen_coin.init(randi()%3+1)
 			add_child(gen_coin)
 		
 		add_child(platform)
