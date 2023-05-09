@@ -11,7 +11,7 @@ var carousel_data = [
 ]
 
 func _ready():
-	pass
+	$AnimationPlayer.play("RESET")
 
 func move(direction):
 	Sound.ui_forward()
