@@ -14,8 +14,15 @@ var default_settings = {
 	"master_volume": 1.0,
 	"ui_volume": 1.0,
 	"film_grain": 1.0,
-	"selected_skin": "panda"
+	"selected_skin": "panda",
 }
+var default_data = {
+	"items": [
+		{"id":"panda","name": "Panda","image": "res://assets/character/Skins/panda.png","price":0,"bought":true},
+		{"id":"panda_red","name": "Red Panda","image": "res://assets/character/Skins/panda_red.png","price":5,"bought":false}
+	]
+}
+var data = default_data
 var settings = default_settings
 func _ready():
 	if !save_manager.save_exists():
@@ -36,14 +43,16 @@ func load_save():
 
 func reset_save():
 	settings = default_settings
+	data = default_data
 	save()
 	
 func set_as_dict(dict : Dictionary):
 	state = dict["state"]
 	auth = dict["auth"]
-	coins = dict["coins"]
+	coins = 100#dict["coins"]
 	#user = dict["user"]
 	settings = dict["settings"]
+	data = dict["data"]
 	update()
 
 func get_as_dict():
@@ -52,7 +61,8 @@ func get_as_dict():
 		"auth":auth,
 		"coins":coins,
 		#"user":user,
-		"settings":settings
+		"settings":settings,
+		"data":data
 	}
 
 func set_setting(field,value):

@@ -5,11 +5,6 @@ var next = 0
 var moving = false
 enum Direction {LEFT = -1,RIGHT = 1}
 
-var carousel_data = [
-	{"id":"panda","name": "Panda","image": "res://assets/character/Skins/panda.png","price":0,"bought":true},
-	{"id":"panda_red","name": "Red Panda","image": "res://assets/character/Skins/panda_red.png","price":125,"bought":false}
-]
-
 func _ready():
 	pass
 
@@ -17,27 +12,39 @@ func move(direction):
 	Sound.ui_forward()
 	moving = true
 	next = current + direction
-	if next > carousel_data.size()-1:
+	if next > State.data["items"].size()-1:
 		next = 0
 	if next < 0:
-		next = carousel_data.size()-1
-	if carousel_data[next].bought:
+		next = State.data["items"].size()-1
+	if State.data["items"][next].bought:
 		%NextSelectButton.text = "Select"
 	else:
-		%NextSelectButton.text = str(carousel_data[next].price) + "P"
-	%NextNameLabel.text = carousel_data[next].name
-	%NextImage.set_texture(load(carousel_data[next].image))
+		%NextSelectButton.text = str(State.data["items"][next].price) + "P"
+	%NextNameLabel.text = State.data["items"][next].name
+	%NextImage.set_texture(load(State.data["items"][next].image))
 	current = next
 	
 func buy():
-	if "has money":
+	if State.data["items"][current]["price"] <= State.coins:
+		State.coins -= State.data["items"][current]["price"]
+		get_node("../MarginContainer/VBoxContainer/CoinLabel").text = str(State.coins)
+		State.data["items"][current]["bought"] = true
+		%SelectButton.text = "Select"
+		%NextSelectButton.text = "Select"
 		Sound.ui_forward()
+		return true
 	else:
 		Sound.ui_warn()
+		#indicate not enough coins
+		return false
 	
 func select():
-	Sound.ui_forward()
-	State.settings["selected_skin"] = carousel_data[current].id
+	if State.data["items"][current]["bought"]:
+		Sound.ui_forward()
+		State.settings["selected_skin"] = State.data["items"][current].id
+	else:
+		if buy():
+			select()
 
 func _on_left_button_pressed():
 	if not moving:
