@@ -25,7 +25,7 @@ func update_score():
 	get_node("CanvasLayer/MarginContainer/HBoxContainer/ScoreLabel").text = str(score)
 	
 func update_coins():
-	$CanvasLayer/MarginContainer/HBoxContainer/CoinLabel.text = str(State.coins)
+	$CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer/CoinLabel.text = str(State.coins)
 	
 func die():
 	if State.state != "dead":

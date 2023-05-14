@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=16 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="6_jnxvp"]
 [ext_resource type="PackedScene" uid="uid://camy3qt3aa5mn" path="res://shaders/grain_rect.tscn" id="9_8gu6t"]
+[ext_resource type="Texture2D" uid="uid://vr8rdxfioxiq" path="res://assets/world/platforms/extensions/pandcoin.png" id="10_m8afx"]
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -120,10 +121,9 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="HBoxContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 0
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -131,11 +131,21 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Score"
 
-[node name="CoinLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Coins"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer"]
+layout_mode = 2
+texture = ExtResource("10_m8afx")
+expand_mode = 2
 
 [node name="PauseButton" type="Button" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
@@ -152,7 +162,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 2390.0
-offset_right = 1080.0
+offset_right = 2160.0
 offset_bottom = 2690.0
 grow_horizontal = 2
 grow_vertical = 0

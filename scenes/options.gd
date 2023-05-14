@@ -16,6 +16,7 @@ func _on_back_button_pressed():
 
 func _on_account_info_button_pressed():
 	Sound.ui_forward()
+	TransitionScene.set_loading(true)
 	TransitionScene.next_scene_args = State.user.id
 	TransitionScene.transition("res://scenes/account_info.tscn")
 

@@ -6,7 +6,7 @@ var moving = false
 enum Direction {LEFT = -1,RIGHT = 1}
 
 func _ready():
-	pass
+	$AnimationPlayer.play("RESET")
 
 func move(direction):
 	Sound.ui_forward()

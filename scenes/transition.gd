@@ -6,6 +6,7 @@ var current_scene
 var in_animation
 var out_animations = ["FadeOut","InstantOut"]
 var aplayer
+var loading = false
 
 func _ready():
 	var root = get_tree().root
@@ -32,4 +33,17 @@ func switch_to_scene(scene):
 	if current_scene.has_method("init") and next_scene_args != null:
 		current_scene.init(next_scene_args)
 		next_scene_args = null
-	aplayer.play(in_animation)
+	if not loading:
+		aplayer.play(in_animation)
+	else:
+		$Loading.visible = true
+		print("vis true")
+		
+func set_loading(load : bool):
+	if load:
+		loading = true
+	else:
+		loading = false
+		aplayer.play(in_animation)
+		$Loading.visible = false
+		print("vis false")

@@ -40,6 +40,7 @@ func _on_selected(result : Array):
 	else:
 		for row in result:
 			%CountryOptionButton.add_item(row["name"],row["id"])
+		TransitionScene.set_loading(false)
 
 func _on_back_button_pressed():
 	Sound.ui_back()

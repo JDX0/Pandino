@@ -61,5 +61,6 @@ text = "Menu"
 
 [node name="CarouselContainer" parent="." instance=ExtResource("7_o6f1h")]
 layout_mode = 1
+offset_bottom = -240.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
