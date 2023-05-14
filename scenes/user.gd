@@ -61,6 +61,7 @@ func _on_auth_error(error : SupabaseAuthError):
 	Sound.ui_warn()
 	%Loading.visible = false
 	error_label.visible = true
-	error_label.text = error.hint
-	print(error.hint)
-
+	if error.hint == "(undefined)":
+		error_label.text = "No internet connection"
+	else:
+		error_label.text = error.hint

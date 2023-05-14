@@ -9,5 +9,5 @@ func _process(_delta):
 	pass
 	
 func interact():
-	var parent_response = get_parent().interact()
+	var parent_response = get_parent().get_parent().interact()
 	return [INTERACT_TYPE,parent_response[0]]

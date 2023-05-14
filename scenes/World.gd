@@ -49,7 +49,7 @@ func generate():
 			var platform_size_x = platform.get_child(2).shape.get_rect().size.x
 			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x,platform.EXTENSION_HEIGHT))
 			gen_extension.add_to_group("interactable")
-			platform.add_child(gen_extension)
+			platform.get_child(1).add_child(gen_extension)
 			
 		# Generate coin
 		if randf() < coin_chance:
