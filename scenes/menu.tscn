@@ -1,10 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=11 format=3 uid="uid://iil4sxgpau4p"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_8qot1"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_ljns5"]
 [ext_resource type="FontFile" uid="uid://dpyi8bsv5wfql" path="res://assets/fonts/Inria/InriaSans-Bold.otf" id="3_ej4lt"]
 [ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_rvs5g"]
 [ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_cv6rm"]
+[ext_resource type="Texture2D" uid="uid://b3tietqee5kkt" path="res://assets/ui/bgtree.png" id="4_mihol"]
+[ext_resource type="Shader" path="res://shaders/menutitle.gdshader" id="6_epafp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5hsgp"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mrkkn"]
+seamless = true
+noise = SubResource("FastNoiseLite_5hsgp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqevq"]
+shader = ExtResource("6_epafp")
+shader_parameter/dissolve_value = 0.663
+shader_parameter/lod = 1.731
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_mrkkn")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,6 +39,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_rvs5g")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -630.0
+offset_right = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mihol")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -76,6 +104,7 @@ theme_override_font_sizes/font_size = 100
 text = "Options"
 
 [node name="GameLabel" type="Label" parent="."]
+material = SubResource("ShaderMaterial_oqevq")
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -91,6 +120,7 @@ theme_override_fonts/font = ExtResource("4_cv6rm")
 theme_override_font_sizes/font_size = 400
 text = "Pandino
 "
+horizontal_alignment = 1
 uppercase = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
