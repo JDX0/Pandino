@@ -83,7 +83,7 @@ func _on_scroll_container_scroll_ended():
 	scrolling = false
 
 
-func _on_list_user_item_clicked(index, at_position, mouse_button_index):
+func _on_list_user_item_clicked(index, _at_position, _mouse_button_index):
 	Sound.ui_forward()
 	print("Showing profile of user "+%ListUser.get_item_metadata(index))
 	TransitionScene.next_scene_args = %ListUser.get_item_metadata(index)

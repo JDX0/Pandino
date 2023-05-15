@@ -25,6 +25,8 @@ var default_data = {
 var data = default_data
 var settings = default_settings
 func _ready():
+	#if structure of save file was changed
+	#reset_save()
 	if !save_manager.save_exists():
 		first_run = true
 		save()

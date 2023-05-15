@@ -1,14 +1,14 @@
 extends Button
 		
-func init(pressed):
-	button_pressed = pressed
+func init(press):
+	button_pressed = press
 	if pressed:
 		$AnimationPlayer.play("RESET")
 	else:
 		$AnimationPlayer.play("RESET_REVERSE")
 
-func _on_toggled(button_pressed):
-	if button_pressed:
+func _on_toggled(_button_pressed):
+	if _button_pressed:
 		Sound.ui_forward()
 		$AnimationPlayer.play("disable")
 	else:

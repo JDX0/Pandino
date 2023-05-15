@@ -40,4 +40,4 @@ func _on_filmgrain_slider_drag_ended(value_changed):
 		State.set_setting("film_grain",$MarginContainer/ScrollContainer/OptionsContainer/GraphicsPanel/MarginContainer/GraphicsOptions/FilmgrainSlider.value)
 
 func _on_vibrate_better_check_button_toggled(button_pressed):
-	State.set_setting("vibrate",button_pressed)
+	State.set_setting("vibrate",not button_pressed)

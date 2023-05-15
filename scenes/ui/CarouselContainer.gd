@@ -56,7 +56,7 @@ func _on_right_button_pressed():
 		move(Direction.RIGHT)
 		$AnimationPlayer.play("right")
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	%NameLabel.text = %NextNameLabel.text
 	%Image.set_texture(%NextImage.get_texture())
 	%SelectButton.text = %NextSelectButton.text

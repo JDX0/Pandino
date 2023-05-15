@@ -39,8 +39,8 @@ func switch_to_scene(scene):
 		$Loading.visible = true
 		print("vis true")
 		
-func set_loading(load : bool):
-	if load:
+func set_loading(is_loading : bool):
+	if is_loading:
 		loading = true
 	else:
 		loading = false
