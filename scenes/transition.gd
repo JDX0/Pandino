@@ -21,7 +21,8 @@ func transition(next,out_anim = "FadeOut",in_anim = "FadeIn"):
 	
 
 func _on_animation_player_animation_finished(anim):
-	aplayer.play("RESET")
+	if not loading:
+		aplayer.play("RESET")
 	if out_animations.has(anim):
 		call_deferred("switch_to_scene",next_scene)
 
