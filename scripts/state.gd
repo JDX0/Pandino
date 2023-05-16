@@ -14,12 +14,13 @@ var default_settings = {
 	"master_volume": 1.0,
 	"ui_volume": 1.0,
 	"film_grain": 1.0,
-	"selected_skin": "panda",
+	"selected_skin": 0,
 }
 var default_data = {
 	"items": [
 		{"id":"panda","name": "Panda","image": "res://assets/character/Skins/panda.png","price":0,"bought":true},
-		{"id":"panda_red","name": "Red Panda","image": "res://assets/character/Skins/panda_red.png","price":5,"bought":false}
+		{"id":"panda_red","name": "Red Panda","image": "res://assets/character/Skins/panda_red.png","price":5,"bought":false},
+		{"id":"panda_print","name": "Printed Panda","image": "res://assets/character/Skins/panda_print.png","price":338,"bought":false}
 	]
 }
 var data = default_data

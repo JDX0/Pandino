@@ -6,6 +6,10 @@ var moving = false
 enum Direction {LEFT = -1,RIGHT = 1}
 
 func _ready():
+	current = State.settings["selected_skin"]
+	%NameLabel.text = State.data["items"][current].name
+	%Image.set_texture(load(State.data["items"][current].image))
+	%SelectButton.text = "Select"
 	$AnimationPlayer.play("RESET")
 
 func move(direction):
@@ -41,7 +45,7 @@ func buy():
 func select():
 	if State.data["items"][current]["bought"]:
 		Sound.ui_forward()
-		State.settings["selected_skin"] = State.data["items"][current].id
+		State.settings["selected_skin"] = current
 	else:
 		if buy():
 			select()
@@ -56,9 +60,10 @@ func _on_right_button_pressed():
 		move(Direction.RIGHT)
 		$AnimationPlayer.play("right")
 
-func _on_animation_player_animation_finished(_anim_name):
-	%NameLabel.text = %NextNameLabel.text
-	%Image.set_texture(%NextImage.get_texture())
-	%SelectButton.text = %NextSelectButton.text
-	$AnimationPlayer.play("RESET")
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name != "RESET":
+		%NameLabel.text = %NextNameLabel.text
+		%Image.set_texture(%NextImage.get_texture())
+		%SelectButton.text = %NextSelectButton.text
+		$AnimationPlayer.play("RESET")
 	moving = false

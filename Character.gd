@@ -11,7 +11,7 @@ var previous_collider
 var sprite_scale : Vector2
 
 func _ready():
-	$Sprite2D.texture = load("res://assets/character/Skins/"+State.settings["selected_skin"]+".png")
+	$Sprite2D.texture = load(State.data["items"][State.settings["selected_skin"]]["image"])
 	sprite_scale = $Sprite2D.scale
 
 func _physics_process(delta):

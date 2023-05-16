@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=15 format=3 uid="uid://iil4sxgpau4p"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_8qot1"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_ljns5"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_cv6rm"]
 [ext_resource type="Texture2D" uid="uid://b3tietqee5kkt" path="res://assets/ui/bgtree.png" id="4_mihol"]
 [ext_resource type="Shader" path="res://shaders/menutitle.gdshader" id="6_epafp"]
+[ext_resource type="Shader" path="res://shaders/gl.gdshader" id="8_hpkvl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5hsgp"]
 noise_type = 0
@@ -20,6 +21,20 @@ shader = ExtResource("6_epafp")
 shader_parameter/dissolve_value = 1.0
 shader_parameter/lod = 1.731
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_mrkkn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_orart"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o4yye"]
+seamless = true
+noise = SubResource("FastNoiseLite_orart")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8brx"]
+shader = ExtResource("8_hpkvl")
+shader_parameter/refraction_stretch = Vector2(1, 1)
+shader_parameter/refraction_strength = 0.016
+shader_parameter/water_tint = Color(0.2, 0.6, 1, 0)
+shader_parameter/speed = 0.015
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_o4yye")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -122,6 +137,19 @@ text = "Pandino
 "
 horizontal_alignment = 1
 uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_w8brx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 252.0
+offset_right = -561.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
