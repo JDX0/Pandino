@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
 const INTERACT_TYPE = "platform_disappearing"
-const EXTENSION_HEIGHT = -30
+const EXTENSION_HEIGHT = -50
 
 var sprite_rect_size : Vector2
 

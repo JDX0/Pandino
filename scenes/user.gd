@@ -54,10 +54,12 @@ func _on_signed_up(user : SupabaseUser):
 	State.user = user
 	print(State.user)
 	Database.update_account_info("Unnamed Panda","",0)
+	TransitionScene.set_loading(true)
 	TransitionScene.next_scene_args = State.user.id
 	TransitionScene.transition("res://scenes/account_info.tscn")
 	
 func _on_auth_error(error : SupabaseAuthError):
+	print(error)
 	Sound.ui_warn()
 	%Loading.visible = false
 	error_label.visible = true

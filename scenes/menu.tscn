@@ -17,7 +17,7 @@ noise = SubResource("FastNoiseLite_5hsgp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqevq"]
 shader = ExtResource("6_epafp")
-shader_parameter/dissolve_value = 0.663
+shader_parameter/dissolve_value = 1.0
 shader_parameter/lod = 1.731
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_mrkkn")
 

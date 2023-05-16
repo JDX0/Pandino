@@ -5,7 +5,7 @@ var last_platform_height = 200
 
 # Generator Settings
 ## Difficulty increases over time
-var difficulty = 1
+var difficulty = 0
 
 var platforms = {"static":preload('res://scenes/platforms/platform.tscn'),"moving":preload('res://scenes/platforms/platform_moving.tscn'),"disappearing":preload('res://scenes/platforms/platform_disappearing.tscn')} # Dictionary of all platforms
 var extensions = {"spring":preload('res://scenes/platforms/extensions/spring.tscn')} # Dictionary of all platform extensions
@@ -13,7 +13,7 @@ var detached_extensions = {"coin":preload('res://scenes/platforms/coin.tscn')} #
 var platform_height_delta = -450
 ## The region in which moving platforms bounce around
 ## Relative to platform height
-var move_area = Rect2(-540,0,1080,10)
+var move_area = Rect2(-600,0,1200,10)
 
 var spring_chance = 0.1
 var coin_chance = 0.34
@@ -24,12 +24,15 @@ func _ready():
 	print(viewport_rect)
 
 func _process(_delta):
+	difficulty = get_parent().score
+	print(str(difficulty))
 	generate()
 
 func generate():
 	var player_height = get_node("Character").position.y
 	
-	if player_height < last_platform_height + 1000:
+	if player_height < last_platform_height + 1500:
+		platform_height_delta = clamp(-difficulty,-490,-150)
 		var height = last_platform_height+platform_height_delta
 		var platform_type = get_random_key_from_dict(platforms)
 		var platform = platforms[platform_type].instantiate()
@@ -44,10 +47,11 @@ func generate():
 		platform.add_to_group("interactable")
 		
 		# Generate spring
-		if randf() < spring_chance:
+		if randf() < spring_chance and not platform_type == "moving":
 			var gen_extension = get_random_from_dict(extensions).instantiate()
 			var platform_size_x = platform.get_child(2).shape.get_rect().size.x
-			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x,platform.EXTENSION_HEIGHT))
+			var platform_offset = platform.get_child(1).position
+			gen_extension.set_position(Vector2(0.5*platform_size_x-randf()*platform_size_x-platform_offset.x,platform.EXTENSION_HEIGHT-platform_offset.y))
 			gen_extension.add_to_group("interactable")
 			platform.get_child(1).add_child(gen_extension)
 			
