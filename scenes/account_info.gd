@@ -37,10 +37,11 @@ func _on_selected(result : Array):
 			%CountryOptionButton.set_item_text(0,result[0]["countries"]["name"])
 		if result[0]["description"] != null:
 			description_edit.text = result[0]["description"]
+		TransitionScene.set_loading(false)
 	else:
 		for row in result:
 			%CountryOptionButton.add_item(row["name"],row["id"])
-		TransitionScene.set_loading(false)
+		
 
 func _on_back_button_pressed():
 	Sound.ui_back()
