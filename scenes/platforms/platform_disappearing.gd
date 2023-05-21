@@ -6,6 +6,7 @@ const EXTENSION_HEIGHT = 0
 var sprite_rect_size : Vector2
 
 func _ready():
+	$Sprite2D.texture = load("res://assets/world/platforms/platform_disappearing_"+State.settings["selected_world"]+".png")
 	sprite_rect_size = $Sprite2D.get_rect().size*$Sprite2D.get_scale()
 
 func _process(_delta):

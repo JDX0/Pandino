@@ -10,6 +10,8 @@ func init(move_area_rect : Rect2 = Rect2(0,0,1080,10)):
 	move_area = move_area_rect
 
 func _ready():
+	$Sprite2D.texture = load("res://assets/world/platforms/platform_moving_"+State.settings["selected_world"]+".png")
+	$EyeGlow.texture = load("res://assets/world/platforms/platform_moving_"+State.settings["selected_world"]+"_anim.png")
 	sprite_rect_size = $Sprite2D.get_rect().size*$Sprite2D.get_scale()
 
 func _process(_delta):
@@ -22,6 +24,7 @@ func _physics_process(delta):
 	position += speed*delta
 
 func interact():
+	$AnimationPlayer.play("interact")
 	return [INTERACT_TYPE]
 
 func get_size():

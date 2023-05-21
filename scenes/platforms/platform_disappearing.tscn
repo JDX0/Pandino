@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bj20x75nxtp8t"]
 
 [ext_resource type="Script" path="res://scenes/platforms/platform_disappearing.gd" id="1_hsuuf"]
-[ext_resource type="Texture2D" uid="uid://bmd4cquqniqy" path="res://assets/world/platforms/disappearing.png" id="2_oom0p"]
+[ext_resource type="Texture2D" uid="uid://bmnrknf1gtk6v" path="res://assets/world/platforms/platform_disappearing_forest.png" id="2_f8btv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyvgt"]
 size = Vector2(250, 60)
@@ -96,7 +96,7 @@ scale = Vector2(12.5, 3)
 z_index = 1
 position = Vector2(356.25, -226.25)
 scale = Vector2(0.878472, 0.878472)
-texture = ExtResource("2_oom0p")
+texture = ExtResource("2_f8btv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pyvgt")

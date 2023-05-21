@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b86fqgbcolfwr"
-path="res://.godot/imported/platform.png-e272a417ae4c94aff953c021f4742848.ctex"
+uid="uid://b0ccesdxibkfx"
+path="res://.godot/imported/platform_desert.png-cf12c4e4f36249791ad69c35bca07f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/platforms/platform.png"
-dest_files=["res://.godot/imported/platform.png-e272a417ae4c94aff953c021f4742848.ctex"]
+source_file="res://assets/world/platforms/platform_desert.png"
+dest_files=["res://.godot/imported/platform_desert.png-cf12c4e4f36249791ad69c35bca07f21.ctex"]
 
 [params]
 

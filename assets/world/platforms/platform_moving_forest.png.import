@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjt1abkhg5eq5"
-path="res://.godot/imported/moving.png-8281c41c41cf41e9b2bdb24946b3de34.ctex"
+uid="uid://dfaed04qvceg1"
+path="res://.godot/imported/platform_moving_forest.png-8ca72a9db812ea60ad9fd2f2b0c9f78a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/platforms/moving.png"
-dest_files=["res://.godot/imported/moving.png-8281c41c41cf41e9b2bdb24946b3de34.ctex"]
+source_file="res://assets/world/platforms/platform_moving_forest.png"
+dest_files=["res://.godot/imported/platform_moving_forest.png-8ca72a9db812ea60ad9fd2f2b0c9f78a.ctex"]
 
 [params]
 

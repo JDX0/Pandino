@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmd4cquqniqy"
-path="res://.godot/imported/disappearing.png-3fa05f66fccf48eada46f37b84b9618a.ctex"
+uid="uid://cuoh82h41pjig"
+path="res://.godot/imported/platform_moving_desert.png-0246ff3802e67d17118d857aa09b73cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/platforms/disappearing.png"
-dest_files=["res://.godot/imported/disappearing.png-3fa05f66fccf48eada46f37b84b9618a.ctex"]
+source_file="res://assets/world/platforms/platform_moving_desert.png"
+dest_files=["res://.godot/imported/platform_moving_desert.png-0246ff3802e67d17118d857aa09b73cb.ctex"]
 
 [params]
 
