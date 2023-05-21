@@ -38,6 +38,7 @@ func switch_to_scene(scene):
 		aplayer.play(in_animation)
 	else:
 		$Loading.visible = true
+		$Timer.start()
 		print("vis true")
 		
 func set_loading(is_loading : bool):
@@ -47,4 +48,8 @@ func set_loading(is_loading : bool):
 		loading = false
 		aplayer.play(in_animation)
 		$Loading.visible = false
+		$Loading/LongLoading.visible = false
 		print("vis false")
+
+func _on_timer_timeout():
+	$Loading/LongLoading.visible = true

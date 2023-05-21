@@ -57,3 +57,5 @@ func _on_non_physical_collision_detector_area_entered(area):
 		match interact_type[0]:
 			"coin":
 				State.coins += area.value
+			"boss":
+				pass #give damage

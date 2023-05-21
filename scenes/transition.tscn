@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnbe6j4tm3y5b"]
+[gd_scene load_steps=10 format=3 uid="uid://dnbe6j4tm3y5b"]
 
 [ext_resource type="Script" path="res://scenes/transition.gd" id="1_65x5g"]
+[ext_resource type="Texture2D" uid="uid://xx05oiujfpi4" path="res://assets/ui/HGrabberHighlight.svg" id="2_uarge"]
 
 [sub_resource type="Animation" id="Animation_x6h0o"]
 resource_name = "FadeIn"
@@ -363,6 +364,12 @@ color = Color(0, 0, 0, 1)
 texture_scale = Vector2(1080, 1080)
 polygon = PackedVector2Array(0, 0, 1.19209e-07, 0.502991, 0, 1, 0.461538, 1, 0.461538, 0)
 
+[node name="LongLoading" type="Sprite2D" parent="Loading"]
+top_level = true
+z_as_relative = false
+position = Vector2(540, 1170)
+texture = ExtResource("2_uarge")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
@@ -370,6 +377,8 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.108
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

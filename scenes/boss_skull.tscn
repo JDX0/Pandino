@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c36b5esytxeox"]
+
+[ext_resource type="Texture2D" uid="uid://cxbpkkna6jmcy" path="res://assets/character/boss/skullim.png" id="1_nhk43"]
+[ext_resource type="Texture2D" uid="uid://b2qx8x1lbq370" path="res://assets/character/boss/eyes.png" id="2_l0xnf"]
+
+[node name="BossSkull" type="Area2D"]
+
+[node name="skull" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nhk43")
+
+[node name="eyes" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l0xnf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(12, 448, 135, 442, 181, 342, 270, 130, 289, -12, 340, -175, 344, -349, 166, -512, 71, -542, -1, -731, -46, -548, -230, -470, -342, -344, -317, -75, -264, 145, -198, 323, -149, 425)
