@@ -6,6 +6,7 @@ var page_size = 100
 var page = 0
 
 func _ready():
+	$TextureRect.texture = load("res://assets/ui/ui_background_"+State.settings["selected_world"]+".png")
 	Supabase.database.connect("selected", _on_selected)
 	Supabase.database.connect("error", _on_database_error)
 	get_online_scores_page(page,page_size)

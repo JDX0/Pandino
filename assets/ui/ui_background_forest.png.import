@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c86hrajr8whmp"
-path="res://.godot/imported/bgblur.png-3f68ef28a7e1ec4b9b46e13a987128a9.ctex"
+uid="uid://d2bsmrpsmlkjl"
+path="res://.godot/imported/ui_background_forest.png-1cdf5610d74daac2fb10c81ba58510d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/bgblur.png"
-dest_files=["res://.godot/imported/bgblur.png-3f68ef28a7e1ec4b9b46e13a987128a9.ctex"]
+source_file="res://assets/ui/ui_background_forest.png"
+dest_files=["res://.godot/imported/ui_background_forest.png-1cdf5610d74daac2fb10c81ba58510d3.ctex"]
 
 [params]
 

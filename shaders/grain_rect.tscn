@@ -6,6 +6,7 @@
 shader = ExtResource("1_mit86")
 shader_parameter/amount = 0.1
 shader_parameter/strength = 10.0
+shader_parameter/resolution = 0.1
 
 [node name="GrainRect" type="ColorRect"]
 material = SubResource("ShaderMaterial_ppywj")

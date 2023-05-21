@@ -1,15 +1,32 @@
-[gd_scene load_steps=16 format=3 uid="uid://yh8ed3ifnghb"]
+[gd_scene load_steps=22 format=3 uid="uid://yh8ed3ifnghb"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jyict"]
 [ext_resource type="PackedScene" uid="uid://117y4nub8dvd" path="res://scenes/character.tscn" id="2_boxkp"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="2_kkpfb"]
-[ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_plnhl"]
+[ext_resource type="Texture2D" uid="uid://cmjigjuhad04o" path="res://assets/world/background_desert.png" id="3_qde44"]
 [ext_resource type="Script" path="res://scenes/Background.gd" id="3_rth78"]
 [ext_resource type="PackedScene" uid="uid://ewayixdstaj6" path="res://scenes/platforms/platform.tscn" id="4_2xq3v"]
 [ext_resource type="Script" path="res://scenes/CharacterCamera.gd" id="5_3da65"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="6_jnxvp"]
+[ext_resource type="Texture2D" uid="uid://cyjcu6qylf21s" path="res://assets/world/parallax3.png" id="8_nopue"]
+[ext_resource type="Texture2D" uid="uid://dswxt8j2dt1j7" path="res://assets/world/parallax2.png" id="9_2eend"]
 [ext_resource type="PackedScene" uid="uid://camy3qt3aa5mn" path="res://shaders/grain_rect.tscn" id="9_8gu6t"]
+[ext_resource type="Texture2D" uid="uid://ricrrht1k0ew" path="res://assets/world/parallax1.png" id="10_4p6my"]
 [ext_resource type="Texture2D" uid="uid://vr8rdxfioxiq" path="res://assets/world/platforms/extensions/pandcoin.png" id="10_m8afx"]
+
+[sub_resource type="Gradient" id="Gradient_3jfsn"]
+offsets = PackedFloat32Array(0, 0.168142, 1)
+colors = PackedColorArray(0.65603, 0.524616, 0.339293, 1, 0.580392, 0.415686, 0.341176, 0.603922, 0.580392, 0.415686, 0.341176, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xdikd"]
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ji3o5"]
+width = 1080
+height = 2340
+seamless = true
+color_ramp = SubResource("Gradient_3jfsn")
+noise = SubResource("FastNoiseLite_xdikd")
 
 [sub_resource type="Animation" id="Animation_j4tba"]
 length = 0.001
@@ -81,7 +98,7 @@ script = ExtResource("2_kkpfb")
 
 [node name="Background" type="Sprite2D" parent="World"]
 scale = Vector2(2, 2)
-texture = ExtResource("3_plnhl")
+texture = ExtResource("3_qde44")
 script = ExtResource("3_rth78")
 
 [node name="Character" parent="World" instance=ExtResource("2_boxkp")]
@@ -96,6 +113,66 @@ offset = Vector2(0, -250)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("5_3da65")
+
+[node name="Branches" type="ParallaxBackground" parent="World"]
+layer = 0
+offset = Vector2(0, 1170)
+transform = Transform2D(1, 0, 0, 1, 0, 1170)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="World/Branches"]
+z_index = 30
+z_as_relative = false
+motion_scale = Vector2(1, 2)
+motion_mirroring = Vector2(0, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Branches/ParallaxLayer3"]
+texture = ExtResource("8_nopue")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="World/Branches"]
+z_index = -50
+z_as_relative = false
+motion_mirroring = Vector2(0, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Branches/ParallaxLayer2"]
+texture = ExtResource("9_2eend")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="World/Branches"]
+modulate = Color(0, 0.215686, 0.403922, 1)
+z_index = -100
+z_as_relative = false
+motion_scale = Vector2(1, 0.5)
+motion_mirroring = Vector2(0, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Branches/ParallaxLayer"]
+texture = ExtResource("10_4p6my")
+
+[node name="Wind" type="ParallaxBackground" parent="World"]
+layer = 10
+offset = Vector2(540, 1170)
+transform = Transform2D(1, 0, 0, 1, 540, 1170)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="World/Wind"]
+modulate = Color(1, 1, 1, 0.27451)
+motion_scale = Vector2(1, 2)
+motion_mirroring = Vector2(1080, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Wind/ParallaxLayer3"]
+texture = SubResource("NoiseTexture2D_ji3o5")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="World/Wind"]
+modulate = Color(1, 1, 1, 0.27451)
+motion_mirroring = Vector2(1080, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Wind/ParallaxLayer2"]
+texture = SubResource("NoiseTexture2D_ji3o5")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="World/Wind"]
+modulate = Color(1, 1, 1, 0.27451)
+motion_scale = Vector2(1, 0.5)
+motion_mirroring = Vector2(1080, 2340)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Wind/ParallaxLayer"]
+texture = SubResource("NoiseTexture2D_ji3o5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -161,9 +238,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2390.0
-offset_right = 10800.0
-offset_bottom = 2690.0
+offset_top = 50.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("6_jnxvp")

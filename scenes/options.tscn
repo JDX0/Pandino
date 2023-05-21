@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwchs880qj6q8"]
+[gd_scene load_steps=6 format=3 uid="uid://dwchs880qj6q8"]
 
 [ext_resource type="Script" path="res://scenes/options.gd" id="1_5gg7i"]
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_w5g0y"]
-[ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_oddwg"]
 [ext_resource type="PackedScene" uid="uid://dkviogb032h1s" path="res://scenes/ui/better_h_slider.tscn" id="3_wcnch"]
 [ext_resource type="PackedScene" uid="uid://canv2ewpvwvbj" path="res://scenes/ui/better_check_button.tscn" id="5_yovuw"]
 
@@ -34,7 +33,6 @@ offset_right = 1080.0
 offset_bottom = 2340.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture = ExtResource("3_oddwg")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

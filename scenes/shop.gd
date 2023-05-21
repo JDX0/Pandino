@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$TextureRect.texture = load("res://assets/ui/ui_background_"+State.settings["selected_world"]+".png")
 	$MarginContainer/VBoxContainer/CoinLabel.text = str(State.coins)
 	
 func _process(_delta):

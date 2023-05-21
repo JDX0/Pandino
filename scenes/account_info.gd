@@ -2,13 +2,12 @@ extends Control
 
 var description_edit
 var username_edit
-var country_option
 var my = false
 
 func _ready():
+	$TextureRect.texture = load("res://assets/ui/ui_background_"+State.settings["selected_world"]+".png")
 	description_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionEdit")
 	username_edit = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UsernameEdit")
-	country_option = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CountryOptionButton")
 	
 func init(id):
 	Supabase.database.connect("selected", _on_selected)
@@ -17,7 +16,7 @@ func init(id):
 		load_countries()
 		$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UsernameEdit.editable = true
 		$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionEdit.editable = true
-		$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/CountryOptionButton.disabled = false
+		%CountryOptionButton.disabled = false
 	get_account_info(id)
 
 func get_account_info(uuid):
@@ -46,5 +45,5 @@ func _on_selected(result : Array):
 func _on_back_button_pressed():
 	Sound.ui_back()
 	if my:
-		Database.update_account_info(username_edit.text,description_edit.text,country_option.get_selected_id())
+		Database.update_account_info(username_edit.text,description_edit.text,%CountryOptionButton.get_selected_id())
 	TransitionScene.transition("res://scenes/menu.tscn")

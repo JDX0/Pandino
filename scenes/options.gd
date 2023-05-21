@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$TextureRect.texture = load("res://assets/ui/ui_background_"+State.settings["selected_world"]+".png")
 	$MarginContainer/ScrollContainer/OptionsContainer/ControlsPanel/MarginContainer/GameOptions/SensitivitySlider.value = State.get_setting("sensitivity")
 	$MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/MasterSlider.value = State.get_setting("master_volume")*100
 	$MarginContainer/ScrollContainer/OptionsContainer/SoundPanel/MarginContainer/SoundOptions/UISlider.value = State.get_setting("ui_volume")*100

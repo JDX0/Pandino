@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3d0kapk0tcq0"]
+[gd_scene load_steps=10 format=3 uid="uid://b462e2dqvhdhx"]
 
-[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_0hxmk"]
-[ext_resource type="Script" path="res://scenes/ui/CarouselContainer.gd" id="1_gua8h"]
-[ext_resource type="Texture2D" uid="uid://c7lvv1bwn6ma8" path="res://assets/character/Skins/panda_red.png" id="2_82yh7"]
-[ext_resource type="StyleBox" uid="uid://crjdsd450yxmd" path="res://styles/white_button.stylebox" id="3_uv41m"]
+[ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_iewdt"]
+[ext_resource type="Script" path="res://scenes/shop.gd" id="2_jb4er"]
+[ext_resource type="Script" path="res://scenes/WolrdCarouselContainer.gd" id="3_d2phc"]
+[ext_resource type="Texture2D" uid="uid://c7lvv1bwn6ma8" path="res://assets/character/Skins/panda_red.png" id="4_iq0dv"]
+[ext_resource type="StyleBox" uid="uid://crjdsd450yxmd" path="res://styles/white_button.stylebox" id="5_mol83"]
 
 [sub_resource type="Animation" id="Animation_ddq5r"]
 length = 0.001
@@ -487,19 +488,74 @@ _data = {
 "right": SubResource("Animation_l2lyo")
 }
 
-[node name="CarouselContainer" type="Control"]
+[node name="Shop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 300.0
-offset_bottom = -290.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0hxmk")
-script = ExtResource("1_gua8h")
+theme = ExtResource("1_iewdt")
+script = ExtResource("2_jb4er")
 
-[node name="LeftButton" type="Button" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 2340.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="SceneLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 150
+text = "Worlds"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Coins"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "Menu"
+
+[node name="CarouselContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 300.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iewdt")
+script = ExtResource("3_d2phc")
+
+[node name="LeftButton" type="Button" parent="CarouselContainer"]
+z_index = 10
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 9
@@ -510,7 +566,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 text = "<"
 
-[node name="RightButton" type="Button" parent="."]
+[node name="RightButton" type="Button" parent="CarouselContainer"]
+z_index = 10
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -524,7 +581,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 text = ">"
 
-[node name="Item" type="Control" parent="."]
+[node name="Item" type="Control" parent="CarouselContainer"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 190.0
@@ -533,29 +590,27 @@ offset_right = 890.0
 offset_bottom = 1268.5
 mouse_filter = 2
 
-[node name="Image" type="TextureRect" parent="Item"]
+[node name="Image" type="TextureRect" parent="CarouselContainer/Item"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(850, 1000)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -75.0
-offset_right = 775.0
-offset_bottom = 1000.0
+offset_right = 1005.0
+offset_bottom = 2340.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 pivot_offset = Vector2(425, 500)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("2_82yh7")
-expand_mode = 4
-stretch_mode = 6
+texture = ExtResource("4_iq0dv")
+stretch_mode = 2
 
-[node name="NameLabel" type="Label" parent="Item"]
+[node name="NameLabel" type="Label" parent="CarouselContainer/Item"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_top = 1100.0
@@ -564,7 +619,7 @@ offset_bottom = 1223.0
 size_flags_horizontal = 0
 text = "Red Panda"
 
-[node name="SelectButton" type="Button" parent="Item"]
+[node name="SelectButton" type="Button" parent="CarouselContainer/Item"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_top = 1250.0
@@ -574,13 +629,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("3_uv41m")
-theme_override_styles/hover = ExtResource("3_uv41m")
-theme_override_styles/pressed = ExtResource("3_uv41m")
+theme_override_styles/normal = ExtResource("5_mol83")
+theme_override_styles/hover = ExtResource("5_mol83")
+theme_override_styles/pressed = ExtResource("5_mol83")
 text = "Select"
 alignment = 0
 
-[node name="NextItem" type="Control" parent="."]
+[node name="NextItem" type="Control" parent="CarouselContainer"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 190.0
@@ -589,30 +644,28 @@ offset_right = 890.0
 offset_bottom = 1268.5
 mouse_filter = 2
 
-[node name="NextImage" type="TextureRect" parent="NextItem"]
+[node name="NextImage" type="TextureRect" parent="CarouselContainer/NextItem"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(850, 1000)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -75.0
-offset_right = 775.001
-offset_bottom = 1000.0
+offset_right = 1005.0
+offset_bottom = 2340.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 pivot_offset = Vector2(425, 500)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("2_82yh7")
-expand_mode = 4
-stretch_mode = 6
+texture = ExtResource("4_iq0dv")
+stretch_mode = 2
 
-[node name="NextNameLabel" type="Label" parent="NextItem"]
+[node name="NextNameLabel" type="Label" parent="CarouselContainer/NextItem"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -624,7 +677,7 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 0
 text = "Red Panda"
 
-[node name="NextSelectButton" type="Button" parent="NextItem"]
+[node name="NextSelectButton" type="Button" parent="CarouselContainer/NextItem"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -636,18 +689,19 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("3_uv41m")
-theme_override_styles/hover = ExtResource("3_uv41m")
-theme_override_styles/pressed = ExtResource("3_uv41m")
+theme_override_styles/normal = ExtResource("5_mol83")
+theme_override_styles/hover = ExtResource("5_mol83")
+theme_override_styles/pressed = ExtResource("5_mol83")
 text = "Select"
 alignment = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CarouselContainer"]
 libraries = {
 "": SubResource("AnimationLibrary_dp1te")
 }
 
-[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="Item/SelectButton" to="." method="select"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CarouselContainer/LeftButton" to="CarouselContainer" method="_on_left_button_pressed" flags=18]
+[connection signal="pressed" from="CarouselContainer/RightButton" to="CarouselContainer" method="_on_right_button_pressed" flags=18]
+[connection signal="pressed" from="CarouselContainer/Item/SelectButton" to="CarouselContainer" method="select" flags=18]
+[connection signal="animation_finished" from="CarouselContainer/AnimationPlayer" to="CarouselContainer" method="_on_animation_player_animation_finished" flags=18]

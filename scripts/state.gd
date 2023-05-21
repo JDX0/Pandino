@@ -23,6 +23,10 @@ var default_data = {
 		{"id":"panda_red","name": "Red Panda","image": "res://assets/character/Skins/panda_red.png","price":5,"bought":false},
 		{"id":"panda_print","name": "Printed Panda","image": "res://assets/character/Skins/panda_print.png","price":338,"bought":false}
 	],
+	"worlds": {
+		"forest": {"name": "Dark Forest","image": "res://assets/world/background_forest.png","price":0,"bought":true},
+		"desert": {"name": "Windy Desert","image": "res://assets/world/background_desert.png","price":5,"bought":true},
+	},
 }
 var data = default_data
 var settings = default_settings
@@ -53,7 +57,7 @@ func reset_save():
 func set_as_dict(dict : Dictionary):
 	state = dict["state"]
 	auth = dict["auth"]
-	coins = 100#dict["coins"]
+	coins = dict["coins"]
 	#user = dict["user"]
 	settings = dict["settings"]
 	data = dict["data"]

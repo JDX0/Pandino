@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$TextureRect.texture = load("res://assets/ui/ui_background_"+State.settings["selected_world"]+".png")
 
 func _process(_delta):
 	pass

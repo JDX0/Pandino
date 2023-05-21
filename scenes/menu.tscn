@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://iil4sxgpau4p"]
+[gd_scene load_steps=14 format=3 uid="uid://iil4sxgpau4p"]
 
 [ext_resource type="Theme" uid="uid://dg6sdfctpk6fi" path="res://styles/theme.theme" id="1_8qot1"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_ljns5"]
 [ext_resource type="FontFile" uid="uid://dpyi8bsv5wfql" path="res://assets/fonts/Inria/InriaSans-Bold.otf" id="3_ej4lt"]
-[ext_resource type="Texture2D" uid="uid://c86hrajr8whmp" path="res://assets/ui/bgblur.png" id="3_rvs5g"]
 [ext_resource type="FontFile" uid="uid://cb4kcw6n5o28t" path="res://assets/fonts/Inria/InriaSerif-Bold.otf" id="4_cv6rm"]
 [ext_resource type="Texture2D" uid="uid://b3tietqee5kkt" path="res://assets/ui/bgtree.png" id="4_mihol"]
 [ext_resource type="Shader" path="res://shaders/menutitle.gdshader" id="6_epafp"]
@@ -53,11 +52,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_rvs5g")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.294118)
+modulate = Color(1, 1, 1, 0.137255)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,7 +86,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 50
-text = "Pandino Alpha 0.2
+text = "Pandino Beta 0.3.2
 by IEDEIX"
 horizontal_alignment = 1
 
@@ -102,6 +100,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ej4lt")
 theme_override_font_sizes/font_size = 200
 text = "Play"
+
+[node name="WorldsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Worlds"
 
 [node name="ShopButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -152,6 +155,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/WorldsButton" to="." method="_on_worlds_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

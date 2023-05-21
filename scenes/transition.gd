@@ -7,6 +7,7 @@ var in_animation
 var out_animations = ["FadeOut","InstantOut"]
 var aplayer
 var loading = false
+var not_deferred = false
 
 func _ready():
 	var root = get_tree().root
@@ -24,7 +25,11 @@ func _on_animation_player_animation_finished(anim):
 	if not loading:
 		aplayer.play("RESET")
 	if out_animations.has(anim):
-		call_deferred("switch_to_scene",next_scene)
+		if not_deferred:
+			switch_to_scene(next_scene)
+			not_deferred = false
+		else:
+			call_deferred("switch_to_scene",next_scene)
 
 func switch_to_scene(scene):
 	current_scene.free()
